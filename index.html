@@ -19,20 +19,22 @@
   <p>
   Progressive Share Button
   <!-- example of how to use the progressive-share-button web component -->
-  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" debug=0 ></progressive-share-button>
+  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" debug=1 ></progressive-share-button>
 </p>
 
-  <p>Basic Example <progressive-share-button url="https://example.com" class="my-example"></progressive-share-button></p>
+  <p>Basic Example <progressive-share-button url="https://example.com" class="my-example" /></p>
 
-  <p>Custom Share Text Example <progressive-share-button url="https://example.com" class="text-share-example">Share this link</progressive-share-button></p>
+  <p>Custom Share Text Example 1<progressive-share-button url="https://example.com" class="text-share-example-1">Share this link</progressive-share-button></p>
+
+  <p>Custom Share Text Example 2<progressive-share-button url="https://example.com" class="text-share-example-2">Share this link</progressive-share-button></p>
 
   <style>
-    /* progressive-share-button {
+    progressive-share-button {
       position: relative;
       top: 2px;
       left: 2px;
     }
-
+/*
     progressive-share-button.my-example {
       background-color: blueviolet;
     }
@@ -53,10 +55,19 @@
       background-color: blueviolet;
     } */
 
-    progressive-share-button.text-share-example::part(shareButton) {
+    progressive-share-button.text-share-example-1::part(shareButton) {
       font-size: 1rem;
       text-decoration: underline;
       color: blue;
+    }
+
+    progressive-share-button.text-share-example-2::part(shareButton) {
+      background: red;
+      color: white;
+      font-size: 0.75rem;
+      border-radius: 1rem;
+      border: 1px solid black;
+      padding: 0.25rem 0.75rem;
     }
   </style>
 </body>
