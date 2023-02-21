@@ -1,17 +1,36 @@
 {
-  "name": "vite-test",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "progressive-share-button",
+  "version": "1.0.0",
+  "description": "A web componet that creates a OS-native share button.",
+  "files":["dist"],
+  "main":"./dist/progressive-share-button.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnfmorton/progressive-share-button"
+  },
+  "module":"./dist/progressive-share-button.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/progressive-share-button.es.js",
+      "require": "./dist/progressive-share-button.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 8888",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "share",
+    "button",
+    "progressive",
+    "web-components",
+    "web-share-api"
+  ],
+  "author": "John F. Morton <john@johnfmorton.com> (https://supergeekery.com)",
+  "license": "MIT",
   "devDependencies": {
-    "vite": "^4.1.0"
-  },
-  "dependencies": {
-    "progressive-share-button": "file:progressive-share-button"
+    "vite": "^4.1.3"
   }
 }
