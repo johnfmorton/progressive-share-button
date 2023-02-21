@@ -27,6 +27,28 @@ This will render one of the following, depending on the device and browser. This
 
 ![Basic Example](./img/button-examples.png)
 
+## Installation as a module
+
+Run the following command to install it.
+
+```bash
+npm install progressive-share-button
+```
+
+main.js, if installed with npm
+```javascript
+import { ProgressiveShareButton } from 'progressive-share-button';
+customElements.define('progressive-share-button', ProgressiveShareButton);
+```
+
+### CDN
+
+https://unpkg.com/ info to come
+
+```html
+<script src="https://unpkg.com/TBD/progressive-share-button"></script>
+```
+
 ## Customizing the Component
 
 The component accepts the following attributes:
@@ -74,27 +96,30 @@ svg {
 
 ### Basic Usage
 
+As shown earlier, the most basic usage of the component is to pass the URL to be shared.
 ```
-<progressive-share-button  url="https://example.com" />
+<progressive-share-button url="https://example.com" />
 ```
 
 ### Usage with Text
 
-
+You can replace the share icon with text by inserting text into the component's slot. The following example replaces the share icon with the text "Share this link". The text is styled with the `text-share-example-1` class using using the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element named `shareButton`.
 
 ```
 <progressive-share-button url="https://example.com" class="text-share-example-1">Share this link</progressive-share-button>
 
 <style>
 progressive-share-button.text-share-example-1::part(shareButton) {
-      font-size: 1rem;
-      text-decoration: underline;
-      color: blue;
-    }
+  font-size: 1rem;
+  text-decoration: underline;
+  color: blue;
+}
 </style>
 ```
 
 ### Advanced Usage with Options
+
+In the following example, 
 
 ```
 <progressive-share-button
@@ -104,7 +129,15 @@ progressive-share-button.text-share-example-1::part(shareButton) {
   smart-share=1
   icon-size="20"
   debug=0
+  class="text-share-example-2"
 />
+
+<style>
+progressive-share-button.text-share-example-2::part(shareIcon) {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: blue;
+}
 ```
 
 ## Why use smart-share
@@ -139,30 +172,12 @@ The following link lets you test the Web Share API on your devices to make a mor
 
 https://w3c.github.io/web-share/demos/share-files.html
 
-## Installation
 
-### NPM
-
-```
-npm install johnfmorton/progressive-share-button
-```
-
-### CDN
-
-https://unpkg.com/
-
-```html
-<script src="https://unpkg.com/TBD/progressive-share-button"></script>
-```
 
 
 
 ## Usage
-main.js, if installed with npm
-```javascript
-import { ProgressiveShareButton } from 'progressive-share-button';
-customElements.define('progressive-share-button', ProgressiveShareButton);
-```
+
 
 main.js, if installed with CDN
 ```javascript
