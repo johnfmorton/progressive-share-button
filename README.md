@@ -19,16 +19,19 @@ The current version of this component supports sharing a URL, title and text. It
 
 The most basic usage of the component is to pass the URL to be shared. The component will render a share icon that will open the native share dialog when clicked.
 
-```
+```html
 Basic Example: <progressive-share-button url="https://example.com" />
 ```
 
-This will render one of the following, depending on the device and browser. This example shows the Windows icon, the Android icon, and the iOS icon.
+This will render one of the following, depending on the device and browser. This example shows the Windows sharing icon, the Android sharing icon, and the iOS sharing icon.
+
 ![Basic Example](./img/button-examples.png)
 
-## Options
+## Customizing the Component
 
-| Option | Type | Default | Description |
+The component accepts the following attributes:
+
+| Attributes | Type | Default | Description |
 | --- | --- | --- | --- |
 | title | string | null | The title of the page to be shared. |
 | text | string | null | The text string to be shared. |
