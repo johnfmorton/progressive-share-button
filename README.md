@@ -4,15 +4,37 @@ The Progressive Share Button web component is a simple way to add a share button
 
 The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows.
 
+## Limitations
+
+The [Web Share API](https://w3c.github.io/web-share/), while still in draft, has wide support on mobile. Desktop support is decent on Windows. Mac support works in Safari, but lags on third-party browsers. Check [caniuse/web-share](https://caniuse.com/web-share) for the most up-to-date information.
+
+The component will only display the share button if the browser supports the Web Share API. If the browser does not support the Web Share API, the component will not display anything.
+
+Progressive Share Button does not support Web Share API Level 2, which allows for the sharing of files.
+
+The current version of this component supports sharing a URL, title and text. It does not support sharing files.
+
+
+## Basic Usage
+
+The most basic usage of the component is to pass the URL to be shared. The component will render a share icon that will open the native share dialog when clicked.
+
+```
+Basic Example: <progressive-share-button url="https://example.com" />
+```
+
+This will render one of the following, depending on the device and browser. This example shows the Windows icon, the Android icon, and the iOS icon.
+![Basic Example](./img/button-examples.png)
+
 ## Options
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
 | title | string | null | The title of the page to be shared. |
-| text | string | null | The text of the page to be shared. |
-| url | string | null | The URL of the page to be shared. |
-| smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the "Why use smart-share" section below for more information. |
-| icon-size | string or int | 24 | If an integer is passed, the component assumes the value is given in pixels, 24 becomes "24px", but you may also pass a string with a valid CSS size, like "1rem". |
+| text | string | null | The text string to be shared. |
+| url | string | null | The URL to be shared. |
+| smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the [_Why use smart-share_](#why-use-smart-share) section below for more information. |
+| icon-size | string or int | 24 | The size of the SVG share icon. The icon is rendered in a square. If an integer is passed, the component assumes the value is given in pixels, 24 becomes "24px", but you may also pass a string with a valid CSS size, like "1rem". |
 | debug | boolean | false | Accepts 0, false, 1, or true. If true is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. |
 ## Styling
 
@@ -44,38 +66,6 @@ svg {
   vertical-align: bottom;
 }
 ```
-
-## Why use smart-share
-
-The Web Share API requires that the data to be shared be passed as an object with the following optional properties:
-
-* title
-* text
-* url
-
-The *Progressive Share Button* web component by default simply passes your data to the Web Share API, like this:
-
-```
-{
-  title: 'Example Page',
-  text: 'This is an example page.',
-  url: 'https://example.com'
-}
-```
-
-The problem is that when multiple properties are passed as separate properties what actually gets shared doesn't always include all the pieces of data you pass into the API. Some devices and applications receiving the data object will only share a single property, most often the URL in my tests.
-
-If have `smart-share` set to true, the component will concatenate all of the data into a single string and pass it to the Web Share API as text. The `title` and `text` will have a period added at the end of the string if it is not present. This will allow the data to be shared on any device or application that supports sharing text. The data will be shared as a single string, like this:
-
-```
-{
-  text: 'Example Page. This is an example page. https://example.com'
-}
-```
-
-The following link lets you test the Web Share API on your devices to make a more informed decision as to what option works best for your use case.
-
-https://w3c.github.io/web-share/demos/share-files.html
 
 ## Usage Examples
 
@@ -114,17 +104,37 @@ progressive-share-button.text-share-example-1::part(shareButton) {
 />
 ```
 
+## Why use smart-share
 
+The Web Share API requires that the data to be shared be passed as an object with the following optional properties:
 
-## Limitations
+* title
+* text
+* url
 
-The [Web Share API](https://w3c.github.io/web-share/), while still in draft, has wide support on mobile. Desktop support is decent on Windows. Mac support works in Safari, but lags on third-party browsers. Check [caniuse/web-share](https://caniuse.com/web-share) for the most up-to-date information.
+The *Progressive Share Button* web component by default simply passes your data to the Web Share API, like this:
 
-The component will only display the share button if the browser supports the Web Share API. If the browser does not support the Web Share API, the component will not display anything.
+```
+{
+  title: 'Example Page',
+  text: 'This is an example page.',
+  url: 'https://example.com'
+}
+```
 
-Progressive Share Button does not support Web Share API Level 2, which allows for the sharing of files.
+The problem is that when multiple properties are passed as separate properties what actually gets shared doesn't always include all the pieces of data you pass into the API. Some devices and applications receiving the data object will only share a single property, most often the URL in my tests.
 
-The current version of this component supports sharing a URL, title and text. It does not support sharing files.
+If have `smart-share` set to true, the component will concatenate all of the data into a single string and pass it to the Web Share API as text. The `title` and `text` will have a period added at the end of the string if it is not present. This will allow the data to be shared on any device or application that supports sharing text. The data will be shared as a single string, like this:
+
+```
+{
+  text: 'Example Page. This is an example page. https://example.com'
+}
+```
+
+The following link lets you test the Web Share API on your devices to make a more informed decision as to what option works best for your use case.
+
+https://w3c.github.io/web-share/demos/share-files.html
 
 ## Installation
 
@@ -166,31 +176,6 @@ index.html
 ## Demo
 
 [https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)
-
-
-## Options
-```
-<!-- example of how to use the progressive-share-button web component -->
-  <progressive-share-button
-    title="Progressive Share Button Web Component"
-    text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API."
-    url="https://example.com"
-    smart-share=1
-    icon-size="20"
-    icon-color="#F0F"
-    icon-color-hover="#F00"
-    icon-color-active="#0F0"
-    background-color="blue"
-    background-color-hover="gray"
-    border-radius="2px"
-    debug=0
-    style="position: relative; top:2px; left: 10px;"
-  ></progressive-share-button>
-```
-
-
-
-
 ## License
 
 MIT
