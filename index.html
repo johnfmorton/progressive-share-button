@@ -19,12 +19,15 @@
   <p>
   Progressive Share Button
   <!-- example of how to use the progressive-share-button web component -->
-  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" icon-color="#F0F" icon-color-hover="#F00" icon-color-active="#0F0" background-color="blue" background-color-hover="gray" border-radius="2px" debug=0 ></progressive-share-button>
+  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" debug=0 ></progressive-share-button>
 </p>
 
   <p>Basic Example <progressive-share-button url="https://example.com" class="my-example"></progressive-share-button></p>
+
+  <p>Custom Share Text Example <progressive-share-button url="https://example.com" class="text-share-example">Share this link</progressive-share-button></p>
+
   <style>
-    progressive-share-button {
+    /* progressive-share-button {
       position: relative;
       top: 2px;
       left: 2px;
@@ -44,6 +47,16 @@
 
     progressive-share-button.my-example::part(shareIcon) {
       fill: purple;
+    } */
+
+    /* progressive-share-button.text-share-example {
+      background-color: blueviolet;
+    } */
+
+    progressive-share-button.text-share-example::part(shareButton) {
+      font-size: 1rem;
+      text-decoration: underline;
+      color: blue;
     }
   </style>
 </body>
