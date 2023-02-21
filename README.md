@@ -1,19 +1,16 @@
 # Progressive Share Button
 
-The Progressive Share Button web component is a simple way to add a share button to your web page. The button will only be displayed if the browser supports the [Web Share API](https://w3c.github.io/web-share/).
+The _Progressive Share Button_ web component is a simple way to add a share button to your web page. The button will only be displayed if the browser supports the [Web Share API](https://w3c.github.io/web-share/).
 
-The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows.
+The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows. If the device type can't be determined, the component will display a Windows share icon.
 
 ## Limitations
 
-The [Web Share API](https://w3c.github.io/web-share/), while still in draft, has wide support on mobile. Desktop support is decent on Windows. Mac support works in Safari, but lags on third-party browsers. Check [caniuse/web-share](https://caniuse.com/web-share) for the most up-to-date information.
+The [Web Share API](https://w3c.github.io/web-share/), while still in draft, has wide support on mobile. Desktop support is decent on Windows. Mac support works in Safari, but lags on third-party browsers. Check [caniuse/web-share](https://caniuse.com/web-share) for the most up-to-date information on its progress.
 
 The component will only display the share button if the browser supports the Web Share API. If the browser does not support the Web Share API, the component will not display anything.
 
-Progressive Share Button does not support Web Share API Level 2, which allows for the sharing of files.
-
-The current version of this component supports sharing a URL, title and text. It does not support sharing files.
-
+_Progressive Share Button_ does not support the sharing of files.
 
 ## Basic Usage
 
@@ -119,7 +116,7 @@ progressive-share-button.text-share-example-1::part(shareButton) {
 
 ### Advanced Usage with Options
 
-In the following example, 
+In the following example,
 
 ```
 <progressive-share-button
@@ -148,7 +145,7 @@ The Web Share API requires that the data to be shared be passed as an object wit
 * text
 * url
 
-The *Progressive Share Button* web component by default simply passes your data to the Web Share API, like this:
+The _Progressive Share Button_ web component by default simply passes your data to the Web Share API, like this:
 
 ```
 {
@@ -172,28 +169,12 @@ The following link lets you test the Web Share API on your devices to make a mor
 
 https://w3c.github.io/web-share/demos/share-files.html
 
-
-
-
-
-## Usage
-
-
-main.js, if installed with CDN
-```javascript
-import { ProgressiveShareButton } from 'https://unpkg.com/TBD/progressive-share-button';
-customElements.define('progressive-share-button', ProgressiveShareButton);
-```
-
-index.html
-```html
-<progressive-share-button url="https://example.com"></progressive-share-button>
-
-<progressive-share-button url="https://example.com" icon="share.svg" apple-icon="share-ios.svg" android-share="share-android.svg" text="Share this article"></progressive-share-button>
-```
 ## Demo
 
-[https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)
+Demo to come.
+
+~~[https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)~~
+
 ## License
 
 MIT
