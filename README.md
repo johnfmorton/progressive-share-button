@@ -55,7 +55,7 @@ Or, with npm.
   <progressive-share-button
     title="Progressive Share Button Web Component"
     text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API."
-    url="https://www.google.com"
+    url="https://example.com"
     smart-share=1
     icon-size="20"
     icon-color="#F0F"
