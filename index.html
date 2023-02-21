@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progressive Share Button</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <script type="module">
+    // import the progressive-share-button web component from the lib folder, which is where the web component is located in the project. You'll likely import it from a CDN or NPM package.
     import  ProgressiveShareButton  from './lib/main.js';
+
+    // register the progressive-share-button web component
     customElements.define('progressive-share-button', ProgressiveShareButton);
   </script>
-  Progressive Share Button
 
+  <p>
+  Progressive Share Button
   <!-- example of how to use the progressive-share-button web component -->
-  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://www.google.com" smart-share=1 icon-size="20" icon-color="#F0F" icon-color-hover="#F00" icon-color-active="#0F0" background-color="blue" background-color-hover="gray" border-radius="2px" debug=0 style="position: relative; top:2px; left: 10px;"></progressive-share-button>
+  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" icon-color="#F0F" icon-color-hover="#F00" icon-color-active="#0F0" background-color="blue" background-color-hover="gray" border-radius="2px" debug=0 ></progressive-share-button>
+</p>
+
+  <p>Basic Example <progressive-share-button url="https://example.com" class="my-example"></progressive-share-button></p>
+  <style>
+    progressive-share-button {
+      position: relative;
+      top: 2px;
+      left: 2px;
+    }
+
+    progressive-share-button.my-example {
+      background-color: blueviolet;
+    }
+
+    progressive-share-button.my-example:hover {
+      background-color: blue;
+    }
+
+    progressive-share-button::part(shareButton) {
+      background-color: green;
+    }
+
+    progressive-share-button.my-example::part(shareIcon) {
+      fill: purple;
+    }
+  </style>
 </body>
 
 </html>

@@ -26,30 +26,30 @@ https://unpkg.com/
 
 
 ## Usage
-
-```html
-<script src="progressive-share-button.js"></script>
-<progressive-share-button url="https://example.com"></progressive-share-button>
-
-<script src="progressive-share-button.js"></script>
-<progressive-share-button url="https://example.com" icon="share.svg" apple-icon="share-ios.svg" android-share="share-android.svg" text="Share this article"></progressive-share-button>
+main.js, if installed with npm
+```javascript
+import { ProgressiveShareButton } from 'progressive-share-button';
+customElements.define('progressive-share-button', ProgressiveShareButton);
 ```
 
-Or, with npm.
+main.js, if installed with CDN
+```javascript
+import { ProgressiveShareButton } from 'https://unpkg.com/TBD/progressive-share-button';
+customElements.define('progressive-share-button', ProgressiveShareButton);
+```
 
-`npm install johnfmorton/progressive-share-button`
+index.html
+```html
+<progressive-share-button url="https://example.com"></progressive-share-button>
 
-
-
+<progressive-share-button url="https://example.com" icon="share.svg" apple-icon="share-ios.svg" android-share="share-android.svg" text="Share this article"></progressive-share-button>
+```
 ## Demo
 
 [https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)
 
 
 ## Options
-
-
-
 ```
 <!-- example of how to use the progressive-share-button web component -->
   <progressive-share-button
