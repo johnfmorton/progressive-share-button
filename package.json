@@ -2,17 +2,17 @@
   "name": "progressive-share-button",
   "version": "1.0.0-alpha.1",
   "description": "A web componet that creates a OS-native share button.",
-  "files":["es", "umd"],
+  "files":["dist"],
   "main":"./dist/progressive-share-button.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/johnfmorton/progressive-share-button"
   },
-  "module":"./dist/progressive-share-button.es.js",
+  "module":"./es/progressive-share-button.es.js",
   "exports": {
     ".": {
-      "import": "./es/progressive-share-button.es.js",
-      "require": "./udm/progressive-share-button.umd.js"
+      "import": "./dist/progressive-share-button.es.js",
+      "require": "./dist/progressive-share-button.umd.js"
     }
   },
   "scripts": {
