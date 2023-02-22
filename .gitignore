@@ -106,6 +106,3 @@ typings/
 .vscode/*
 !.vscode/extensions.json
 .idea
-
-
-dist
