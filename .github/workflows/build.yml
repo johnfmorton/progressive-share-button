@@ -21,8 +21,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
       - run: npm install
+      - name: Build
       - run: npm run build --if-present
-      # add built files to the commit
-      - run: git add -f dist
-      - run: git commit -m "Add built files"
+      # add built files to the commit as local github user (not the github action bot)
+      - name: Commit build files
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: "Build files"
+          add: "build"
