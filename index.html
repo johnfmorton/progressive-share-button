@@ -31,27 +31,23 @@
   <p>Custom Share Text Example 2: <progressive-share-button url="https://example.com" class="text-share-example-2" debug=0>Share this link</progressive-share-button></p>
 
   <style>
-    progressive-share-button {
-      /* position: relative; */
-    }
 
-    progressive-share-button.example-1 {
+    progressive-share-button.example-1::part(shareButton) {
       background-color: blueviolet;
       border-radius: 5px;
       padding: 0.5rem;
     }
 
-    progressive-share-button.example-1:hover {
+    progressive-share-button.example-1:hover::part(shareButton) {
       background-color: blue;
     }
 
     progressive-share-button.example-1::part(shareIcon) {
-      fill: white;
+      color: white;
     }
 
-    /* TODO: why isn't this working? */
     progressive-share-button.example-1:hover::part(shareIcon) {
-      fill: orange;
+      color: orange;
     }
 
     progressive-share-button.text-share-example-1::part(shareButton) {

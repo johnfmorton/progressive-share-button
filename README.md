@@ -55,14 +55,30 @@ The component accepts the following attributes:
 | title | string | null | The title of the page to be shared. |
 | text | string | null | The text string to be shared. |
 | url | string | null | The URL to be shared. |
-| smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the [_Why use smart-share_](#why-use-smart-share) section below for more information. |
+| smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the [_Why use smart-share_](#why-use-the-smart-share-feature) section below for more information. |
 | icon-size | string or int | 24 | The size of the SVG share icon. The icon is rendered in a square. If an integer is passed, the component assumes the value is given in pixels, 24 becomes "24px", but you may also pass a string with a valid CSS size, like "1rem". |
 | debug | boolean | false | Accepts 0, false, 1, or true. If true is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. |
 ## Styling
 
 The component uses the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) to encapsulate the styles. This means that the styles are not inherited by the parent page. To style the component, you must use the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element. There are two parts that can be styled: `shareButton` and `shareIcon`.
 
-### shareButton
+The basic Shadow DOM strutcture of the component is as follows:
+
+```html
+<progressive-share-button>
+  <button part="shareButton">
+    <slot>
+      <svg part="shareIcon">
+        <!-- content of SVG here -->
+      </svg>
+    </slot>
+  </button>
+</progressive-share-button>
+```
+
+If you place style directly on the component, i.e., the _progressive-share-button_ element, you may have unintended visual glitches on devices that would normally not display the share button. For example, if you place a background color and padding on the component, the background color will be displayed on devices that do not support the Web Share API.
+
+### The _shareButton_ part
 
 The `shareButton` part is the button that is displayed when the Web Share API is supported. The button is a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) element. The button has the following default styles:
 
@@ -76,7 +92,7 @@ button {
 }
 ```
 
-### shareIcon
+### The _shareIcon_ part
 
 The `shareIcon` part is the icon that is displayed when the Web Share API is supported. The icon is an [svg](https://developer.mozilla.org/en-US/docs/Web/SVG) element. The icon has the following default styles:
 
@@ -89,18 +105,23 @@ svg {
 }
 ```
 
-## Usage Examples
+## Usage examples
 
-### Basic Usage
+### Basic usage
 
-As shown earlier, the most basic usage of the component is to pass the URL to be shared.
+As shown earlier, the most basic usage of the component is to pass the URL to be shared. You may also pass the title and text to be shared.
+
 ```
 <progressive-share-button url="https://example.com" />
+
+<progressive-share-button title="Example.com" url="https://example.com" />
+
+<progressive-share-button title="Example.com" text="The example.com URL is a useful placehold during web development." url="https://example.com" />
 ```
 
-### Usage with Text
+### Replacing the share icon with text
 
-You can replace the share icon with text by inserting text into the component's slot. The following example replaces the share icon with the text "Share this link". The text is styled with the `text-share-example-1` class using using the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element named `shareButton`.
+You can replace the share icon with text by inserting text into the component's slot. The following example replaces the share icon with the text "Share this link". The text is styled using the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element named `shareButton` to apply the updated style to the button. This example also shows how you can target the component by assigning the  `text-share-example-1` class to the element.
 
 ```
 <progressive-share-button url="https://example.com" class="text-share-example-1">Share this link</progressive-share-button>
@@ -114,7 +135,7 @@ progressive-share-button.text-share-example-1::part(shareButton) {
 </style>
 ```
 
-### Advanced Usage with Options
+### Advanced usage with options
 
 In the following example,
 
@@ -137,7 +158,7 @@ progressive-share-button.text-share-example-2::part(shareIcon) {
 }
 ```
 
-## Why use smart-share
+## Why use the "smart-share" feature?
 
 The Web Share API requires that the data to be shared be passed as an object with the following optional properties:
 
@@ -171,9 +192,7 @@ https://w3c.github.io/web-share/demos/share-files.html
 
 ## Demo
 
-Demo to come.
-
-~~[https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)~~
+[https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)
 
 ## License
 
