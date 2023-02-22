@@ -34,16 +34,16 @@ npm install progressive-share-button
 
 main.js, if installed with npm
 ```javascript
-import { ProgressiveShareButton } from 'progressive-share-button';
+import ProgressiveShareButton from 'progressive-share-button';
 customElements.define('progressive-share-button', ProgressiveShareButton);
 ```
 
 ### CDN
 
-You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button).
+~~Not Tested: You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button).~~
 
 ```html
-<script src="https://unpkg.com/progressive-share-button"></script>
+<!-- script src="https://unpkg.com/progressive-share-button"></script --!>
 ```
 
 ## Customizing the Component
