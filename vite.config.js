@@ -4,7 +4,7 @@ const { defineConfig } = require('vite')
 module.exports = defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'lib/main.js'),
+      entry: path.resolve(__dirname, 'lib/main.ts'),
       name: 'progressive-share-button',
       fileName: (format) => `progressive-share-button.${format}.js`
     }

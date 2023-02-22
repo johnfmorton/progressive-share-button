@@ -1,4 +1,5 @@
 export default class ProgressiveShareButton extends HTMLElement {
+    iconSize: () => string
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
@@ -15,7 +16,8 @@ export default class ProgressiveShareButton extends HTMLElement {
         function _isNumeric(value) {
             return /^-?\d+$/.test(value)
         }
-        if (navigator.share || _getBoolean(this.getAttribute('debug'))) {
+      if (typeof navigator.share === "function" || _getBoolean(this.getAttribute('debug'))) {
+          if (this.shadowRoot) {
             this.shadowRoot.innerHTML = `
 <style>
   :host {
@@ -39,11 +41,12 @@ export default class ProgressiveShareButton extends HTMLElement {
 </style>
 <button part="shareButton">
 <slot>
-${_whichIcon()}
+${_whichIcon(this.iconSize())}
 </slot>
 </button>
     `
-            this.addEventListener('click', this.share)
+    this.addEventListener('click', this.share)
+          }
         }
     }
 
@@ -52,9 +55,16 @@ ${_whichIcon()}
         const smartShare = _getBoolean(this.getAttribute('smart-share'))
         const url = this.getAttribute('url')
         let text = this.getAttribute('text')
-        let title = this.getAttribute('title')
+      let title = this.getAttribute('title')
 
-        let data = {}
+      interface data {
+        url?: string
+        text?: string
+        title?: string
+      }
+
+
+      let data: data = {};
         if (url) {
             data.url = url
         }
@@ -144,13 +154,13 @@ const _whichIcon = (iconSize) => {
     switch (os) {
         case 'iOS':
         case 'Mac':
-            return iosShareIcon(iconSize)
+            return iosShareIcon()
         case 'Android':
-            return androidShareIcon(iconSize)
+            return androidShareIcon()
         case 'Windows':
-            return winShareIcon(iconSize)
+            return winShareIcon()
         default:
-            return winShareIcon(iconSize)
+            return winShareIcon()
     }
 }
 
