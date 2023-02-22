@@ -16,50 +16,43 @@
     customElements.define('progressive-share-button', ProgressiveShareButton);
   </script>
 
-<p>Basic Example: <progressive-share-button url="https://example.com" title="Visit Example.com"  class="my-example" debug=0 /></p>
+<p>Basic Example: <progressive-share-button url="https://example.com" title="Visit Example.com"  class="example-0" debug=0 /></p>
 
   <p>
   Progressive Share Button with Smart-share and Icon Size of 20px:
   <!-- example of how to use the progressive-share-button web component -->
-  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" debug=1 class="text-share-example-2"></progressive-share-button>
+  <progressive-share-button title="Progressive Share Button Web Component" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://example.com" smart-share=1 icon-size="20" debug=0 class="example-1"></progressive-share-button>
 </p>
 
 
 
-  <p>Custom Share Text Example 1<progressive-share-button url="https://example.com" class="text-share-example-1" debug=1>Share this link</progressive-share-button></p>
+  <p>Custom Share Text Example 1: <progressive-share-button url="https://example.com" class="text-share-example-1" debug=0>Share this link</progressive-share-button></p>
 
-  <p>Custom Share Text Example 2<progressive-share-button url="https://example.com" class="text-share-example-3" debug=1>Share this link</progressive-share-button></p>
+  <p>Custom Share Text Example 2: <progressive-share-button url="https://example.com" class="text-share-example-2" debug=0>Share this link</progressive-share-button></p>
 
   <style>
     progressive-share-button {
       /* position: relative; */
     }
 
-    progressive-share-button.text-share-example-2 {
+    progressive-share-button.example-1 {
       background-color: blueviolet;
       border-radius: 5px;
       padding: 0.5rem;
     }
 
-    progressive-share-button.text-share-example-2:hover {
+    progressive-share-button.example-1:hover {
       background-color: blue;
     }
 
-    progressive-share-button.text-share-example-2::part(shareIcon) {
+    progressive-share-button.example-1::part(shareIcon) {
       fill: white;
     }
 
-    /* progressive-share-button::part(shareButton) {
-      background-color: green;
-    } */
-
-    progressive-share-button.my-example::part(shareIcon) {
-      fill: purple;
+    /* TODO: why isn't this working? */
+    progressive-share-button.example-1:hover::part(shareIcon) {
+      fill: orange;
     }
-
-    /* progressive-share-button.text-share-example {
-      background-color: blueviolet;
-    } */
 
     progressive-share-button.text-share-example-1::part(shareButton) {
       font-size: 1rem;
@@ -67,7 +60,7 @@
       color: blue;
     }
 
-    progressive-share-button.text-share-example-3::part(shareButton) {
+    progressive-share-button.text-share-example-2::part(shareButton) {
       background: red;
       color: white;
       font-size: 0.75rem;
