@@ -40,3 +40,7 @@ jobs:
           add: "dist"
           commit: --signoff
           push: true
+      - name: NPM Publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
