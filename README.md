@@ -24,8 +24,6 @@ The component will only display the share button if the browser supports the Web
 
 _Progressive Share Button_ does not support the sharing of files.
 
-
-
 ## Installation as a module
 
 Run the following command to install it.
@@ -59,7 +57,7 @@ The component accepts the following attributes:
 | url | string | null | The URL to be shared. |
 | smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the [_Why use smart-share_](#why-use-the-smart-share-feature) section below for more information. |
 | icon-size | string or int | 24 | The size of the SVG share icon. The icon is rendered in a square. If an integer is passed, the component assumes the value is given in pixels, 24 becomes "24px", but you may also pass a string with a valid CSS size, like "1rem". |
-| debug | boolean | false | Accepts 0, false, 1, or true. If true is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. |
+| debug | boolean | false | Accepts 0, false, 1, or true. If true is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. No custom events will be fired. |
 ## Styling
 
 The component uses the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) to encapsulate the styles. This means that the styles are not inherited by the parent page. To style the component, you must use the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element. There are two parts that can be styled: `shareButton` and `shareIcon`.
@@ -139,16 +137,15 @@ progressive-share-button.text-share-example-1::part(shareButton) {
 
 ### Advanced usage with options
 
-In the following example,
+In the following example, the component is assigned the `text-share-example-2` class. The component is styled using the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element named `shareIcon` to apply the updated style to the icon. The component is also assigned the `smart-share` attribute to pass the title, text, and url as a single string to the Web Share API. The icon will be displayed at 20 pixels wide and high.
 
 ```
 <progressive-share-button
-  title="Progressive Share Button Web Component"
-  text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API."
+  title="Example.com"
+  text="The example.com URL is a useful placehold during web development."
   url="https://example.com"
   smart-share=1
-  icon-size="20"
-  debug=0
+  icon-size=20
   class="text-share-example-2"
 />
 
@@ -162,7 +159,7 @@ progressive-share-button.text-share-example-2::part(shareIcon) {
 
 ## Why use the "smart-share" feature?
 
-The Web Share API requires that the data to be shared be passed as an object with the following optional properties:
+The _smart-share_ feature is an attempt to address a situation that might be viewed as a bug in the implementation of the Web Share API on some platforms. The Web Share API requires that the data to be shared be passed as an object with the following optional properties:
 
 * title
 * text
@@ -180,7 +177,7 @@ The _Progressive Share Button_ web component by default simply passes your data 
 
 The problem is that when multiple properties are passed as separate properties what actually gets shared doesn't always include all the pieces of data you pass into the API. Some devices and applications receiving the data object will only share a single property, most often the URL in my tests.
 
-If have `smart-share` set to true, the component will concatenate all of the data into a single string and pass it to the Web Share API as text. The `title` and `text` will have a period added at the end of the string if it is not present. This will allow the data to be shared on any device or application that supports sharing text. The data will be shared as a single string, like this:
+If `smart-share` attribute is true, the component will concatenate all of the data into a single string and pass it to the Web Share API as text. The `title` and `text` will have a period added at the end of the string if it is not present. This will allow the data to be shared on any device or application that supports sharing text. The data will be shared as a single string, like this:
 
 ```
 {
@@ -191,6 +188,29 @@ If have `smart-share` set to true, the component will concatenate all of the dat
 The following link lets you test the Web Share API on your devices to make a more informed decision as to what option works best for your use case.
 
 https://w3c.github.io/web-share/demos/share-files.html
+
+## Custom events
+
+There are two custom event emitted by the component: `progressive-share-success` and `progressive-share-fail`.
+
+| Event name | Description |
+| --- | --- |
+| `progressive-share-success` | Emitted when the Web Share API is supported and the data is successfully shared. |
+| `progressive-share-fail` | Emitted when the Web Share API is supported but the data is not successfully shared. This is typically emitted when a user opens the share dialog box but exits out of it without sharing. |
+
+
+
+```javascript
+// example of listening for the custom events
+document.addEventListener('progressive-share-success', (e) => {
+  // e.detail contains the share data that was shared
+  console.log('The progressive-share event was heard.', e.detail);
+});
+document.addEventListener('progressive-share-fail', (e) => {
+  // e.detail contains the error message
+  console.log('The progressive-share-fail event was heard.', e.detail);
+});
+```
 
 ## Demo
 
