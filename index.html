@@ -14,6 +14,16 @@
 
     // register the progressive-share-button web component
     customElements.define('progressive-share-button', ProgressiveShareButton);
+
+    // add an event listener to the progressive-share-button web component custom event 'share'
+    document.addEventListener('progressive-share-success', (e) => {
+      // e.detail contains the share data
+      console.log('The progressive-share-success event was heard.', e.detail);
+    });
+    document.addEventListener('progressive-share-fail', (e) => {
+      // e.detail contains the share data
+      console.log('The progressive-share-fail event was heard.', e.detail);
+    });
   </script>
 
 <p>Basic Example: <progressive-share-button url="https://example.com" title="Visit Example.com"  class="example-0" debug=0 /></p>
