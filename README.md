@@ -26,7 +26,7 @@ _Progressive Share Button_ does not support the sharing of files.
 
 ## Installation as a module
 
-Run the following command to install it.
+The component is available as an [npm](https://www.npmjs.com/package/progressive-share-button) module. Run the following command to install it.
 
 ```bash
 npm install progressive-share-button
