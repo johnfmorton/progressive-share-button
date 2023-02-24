@@ -41,9 +41,17 @@
 
 <hr>
 
-<p>Basic Example: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit Example.com"  class="example-0" debug=1 /></p>
+<p>Basic Example: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit Example.com"  class="example-0" debug=0 /></p>
 
 <hr>
+
+  <p>The following is the same as the basic example above, but with debug mode enabled. Debug mode will display the button even if the browser does not support the Web Share API. (If you are on Chrome on a Mac, this will be the only instance of the share button you will see on this page.) Clicking the share icon will not activate the share dialog box but instead will console.log the data that will be shared.</p>
+
+  <p>Basic Example: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit Example.com" class="example-0" debug=1 /></p>
+
+  <hr>
+
+  <p>The following uses the 'smart-share' feature which will concatenate the title, text and URL into a single string and then share that string. This helps deal with some inconsistent implementations in the Web Share API.</p>
 
   <p>
   Progressive Share Button with Smart-share and Icon Size of 20px:
@@ -53,9 +61,10 @@
 
 <hr>
 
+  <p>The following examples demonstrate overriding the icon built into the component. There are 2 examples of using text inside the button with different styling options.</p>
+
   <p>Custom Share Text Example 1: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0>Share this link</progressive-share-button></p>
 
-<hr>
 
   <p>Custom Share Text Example 2: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0>Share this link</progressive-share-button></p>
 <hr>
