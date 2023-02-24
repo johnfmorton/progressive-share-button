@@ -50,7 +50,7 @@ export class ProgressiveShareButtonElement extends HTMLElement {
                 this.addEventListener('click', this.share)
             }
         } else {
-            console.log('navigator.share not supported')
+            console.warn('ProgressiveShareButton disabled due to lack of Web Share API support on this browser.')
         }
     }
 
@@ -130,11 +130,11 @@ export class ProgressiveShareButtonElement extends HTMLElement {
 export default function ProgressiveShareButton(): boolean {
     if (typeof navigator.share === 'function') {
         console.log(
-            'ProgressiveShareButton loaded. <progressive-share-success /> element now available'
+            'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
         )
     } else {
         console.log(
-            'ProgressiveShareButton loaded, but navigator.share *not* supported on this browser.'
+            'ProgressiveShareButton support initialized. This browser does not have Web Share API support support.'
         )
     }
     // register the progressive-share-button web component
