@@ -34,17 +34,37 @@ npm install progressive-share-button
 
 main.js, if installed with npm
 ```javascript
+// Import the component, which is the default export, so no curly braces are needed.
 import ProgressiveShareButton from 'progressive-share-button';
-customElements.define('progressive-share-button', ProgressiveShareButton);
+// Initialie the component
+ProgressiveShareButton();
 ```
 
-### CDN
+### Customizing the component name
+
+If you want to customize the component name, you can import the element class directly and register it with a different name. Take note of the curly braces used in the import statement. This is a [named import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Importing_specific_features).
+
+
+```javascript
+import { ProgressiveShareButtonElement } from 'progressive-share-button';
+// Initialie the component
+customElements.define('my-share-button', ProgressiveShareButtonElement);
+
+```
+
+### CDN - not tested yet
 
 ~~Not Tested: You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button).~~
 
 ```html
 <!-- script src="https://unpkg.com/progressive-share-button"></script --!>
 ```
+
+## Typescript support
+
+WIP: ~~~The component is written in Typescript and includes a type definition file. If you are using Typescript, you can import the component directly into your project.~~~
+
+
 
 ## Customizing the Component
 
