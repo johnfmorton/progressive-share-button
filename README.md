@@ -1,15 +1,21 @@
 # Progressive Share Button
 
-The _Progressive Share Button_ web component is a simple way to add a share button to your web page that will show the user the OS native share options using the [Web Share API](https://w3c.github.io/web-share/). The "progressive" part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API. If the browser does not support the Web Share API, the component will not display anything.
+The _Progressive Share Button_ web component is a simple way to add a share button to your web page that will show the user the OS native share options using the [Web Share API](https://w3c.github.io/web-share/). The "progressive" part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API. **If the browser does not support the Web Share API, the component will not display anything.**
 
 The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows. If the device type can't be determined, the component will display a Windows share icon.
 
 ## Basic Usage
 
-The most basic usage of the component is to pass the URL to be shared. The component will render a share icon that will open the native share dialog when clicked.
+The most basic usage of the component is to use no attributes. The component will share the current page's URL.
 
 ```html
-Basic Example: <progressive-share-button url="https://example.com" />
+<progressive-share-button />
+```
+
+You may also pass the URL to be shared. The component will share the URL that has been specified.
+
+```html
+<progressive-share-button url="https://example.com" />
 ```
 
 This will render one of the following, depending on the device and browser. This example shows the Windows sharing icon, the Android sharing icon, and the iOS sharing icon.
@@ -47,7 +53,7 @@ If you want to customize the component name, you can import the element class di
 
 ```javascript
 import { ProgressiveShareButtonElement } from 'progressive-share-button';
-// Initialie the component
+// Initialize the component
 customElements.define('my-share-button', ProgressiveShareButtonElement);
 
 ```

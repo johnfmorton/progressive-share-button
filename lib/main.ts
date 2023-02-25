@@ -92,6 +92,11 @@ export class ProgressiveShareButtonElement extends HTMLElement {
                 }`,
             }
         }
+        // if there is no value for url, text or title, then use the current page url
+        if (!data.url && !data.text && !data.title) {
+          data.url = window.location.href
+        }
+
         let shareEvent = new CustomEvent('progressive-share-success', {
             bubbles: true,
             cancelable: false,
