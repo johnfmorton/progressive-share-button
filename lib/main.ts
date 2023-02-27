@@ -4,7 +4,7 @@ export class ProgressiveShareButtonElement extends HTMLElement {
         super()
         this.attachShadow({ mode: 'open' })
         this.iconSize = () => {
-            const size = this.getAttribute('icon-size')
+            const size = this.getAttribute('icon-size') ?? '';
             if (_isNumeric(size)) {
                 return size + 'px'
             } else if (size) {
@@ -132,7 +132,7 @@ export class ProgressiveShareButtonElement extends HTMLElement {
     }
 }
 
-export default function ProgressiveShareButton(): boolean {
+export function ProgressiveShareButton(): boolean {
     if (typeof navigator.share === 'function') {
         console.log(
             'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
@@ -190,16 +190,21 @@ const _whichIcon = () => {
 }
 
 function _getBoolean(stringValue) {
+    if (!stringValue) {
+        return false
+    }
     switch (stringValue?.toLowerCase()?.trim()) {
         case 'true':
         case '1':
             return true
         case 'false':
         case '0':
-        case null:
-        case undefined:
             return false
         default:
             return JSON.parse(stringValue)
     }
 }
+
+export default (() => {
+    ProgressiveShareButton()
+})()

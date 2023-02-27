@@ -39,11 +39,10 @@ npm install progressive-share-button
 ```
 
 main.js, if installed with npm
+
 ```javascript
 // Import the component, which is the default export, so no curly braces are needed.
 import ProgressiveShareButton from 'progressive-share-button';
-// Initialie the component
-ProgressiveShareButton();
 ```
 
 ### Customizing the component name
