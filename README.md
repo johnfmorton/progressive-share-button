@@ -43,6 +43,8 @@ main.js, if installed with npm
 ```javascript
 // Import the component, which is the default export, so no curly braces are needed.
 import ProgressiveShareButton from 'progressive-share-button';
+// Initialize the component
+ProgressiveShareButton.init();
 ```
 
 ### Customizing the component name
@@ -51,9 +53,9 @@ If you want to customize the component name, you can import the element class di
 
 
 ```javascript
-import { ProgressiveShareButtonElement } from 'progressive-share-button';
+import { ProgressiveShareButtonClass } from 'progressive-share-button';
 // Initialize the component
-customElements.define('my-share-button', ProgressiveShareButtonElement);
+customElements.define('my-share-button', ProgressiveShareButtonClass);
 
 ```
 
@@ -229,7 +231,7 @@ There are two custom event emitted by the component: `progressive-share-success`
 // example of listening for the custom events
 document.addEventListener('progressive-share-success', (e) => {
   // e.detail contains the share data that was shared
-  console.log('The progressive-share event was heard.', e.detail);
+  console.log('The progressive-share-success event was heard.', e.detail);
 });
 document.addEventListener('progressive-share-fail', (e) => {
   // e.detail contains the error message

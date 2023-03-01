@@ -1,36 +1,40 @@
 {
-  "name": "progressive-share-button",
-  "version": "1.0.0-alpha.8",
-  "description": "A web componet that creates a OS-native share button.",
-  "files":["dist"],
-  "main":"./dist/progressive-share-button.umd.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/johnfmorton/progressive-share-button"
-  },
-  "module":"./es/progressive-share-button.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/progressive-share-button.es.js",
-      "require": "./dist/progressive-share-button.umd.js"
+    "name": "progressive-share-button",
+    "version": "1.0.0-alpha.9",
+    "description": "A web componet that creates a OS-native share button.",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/progressive-share-button.umd.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/johnfmorton/progressive-share-button"
+    },
+    "module": "./es/progressive-share-button.es.js",
+    "unpkg": "./dist/progressive-share-button.umd.js",
+    "types": "./@types/progressive-share-button.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/progressive-share-button.es.js",
+            "require": "./dist/progressive-share-button.umd.js"
+        }
+    },
+    "scripts": {
+        "dev": "vite --host 0.0.0.0 --port 8888",
+        "build": "vite build",
+        "preview": "vite preview",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "share",
+        "button",
+        "progressive",
+        "web-components",
+        "web-share-api"
+    ],
+    "author": "John F. Morton <john@johnfmorton.com> (https://supergeekery.com)",
+    "license": "MIT",
+    "devDependencies": {
+        "vite": "^4.1.3"
     }
-  },
-  "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 8888",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "share",
-    "button",
-    "progressive",
-    "web-components",
-    "web-share-api"
-  ],
-  "author": "John F. Morton <john@johnfmorton.com> (https://supergeekery.com)",
-  "license": "MIT",
-  "devDependencies": {
-    "vite": "^4.1.3"
-  }
 }
