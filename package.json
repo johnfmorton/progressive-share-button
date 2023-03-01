@@ -1,6 +1,6 @@
 {
     "name": "progressive-share-button",
-    "version": "1.0.0-alpha.10",
+    "version": "1.0.0-alpha.11",
     "description": "A web componet that creates a OS-native share button.",
     "files": [
         "dist"
@@ -12,7 +12,7 @@
     },
     "module": "./es/progressive-share-button.es.js",
     "unpkg": "./dist/progressive-share-button.umd.js",
-    "types": "./@types/progressive-share-button.d.ts",
+    "types": "./dist/main.d.ts",
     "exports": {
         ".": {
             "import": "./dist/progressive-share-button.es.js",
@@ -21,7 +21,8 @@
     },
     "scripts": {
         "dev": "vite --host 0.0.0.0 --port 8888",
-        "build": "vite build",
+        "buildVite": "vite build",
+        "build": "tsc lib/main.ts --declaration --emitDeclarationOnly --outDir dist",
         "preview": "vite preview",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -35,6 +36,7 @@
     "author": "John F. Morton <john@johnfmorton.com> (https://supergeekery.com)",
     "license": "MIT",
     "devDependencies": {
+        "typescript": "^4.9.5",
         "vite": "^4.1.3"
     }
 }
