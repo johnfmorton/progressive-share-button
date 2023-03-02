@@ -1,0 +1,1 @@
+Entry module "lib/main.ts" is using named and default exports together. Consumers of your bundle will have to use `progressive-share-button.default` to access the default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
