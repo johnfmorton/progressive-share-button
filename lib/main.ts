@@ -127,7 +127,7 @@ export class ProgressiveShareButtonElement extends HTMLElement {
     }
 }
 
-export default function ProgressiveShareButton(): boolean {
+export function ProgressiveShareButton(): boolean {
     if (typeof navigator.share === 'function') {
         console.log(
             'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
