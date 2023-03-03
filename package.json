@@ -10,9 +10,9 @@
         "type": "git",
         "url": "https://github.com/johnfmorton/progressive-share-button"
     },
-    "module": "./dist/progressive-share-button.es.js",
+    "module": "./es/progressive-share-button.es.js",
     "unpkg": "./dist/progressive-share-button.umd.js",
-    "types": "./dist/types.d.ts",
+    "types": "./dist/main.d.ts",
     "exports": {
         ".": {
             "import": "./dist/progressive-share-button.es.js",
@@ -20,10 +20,9 @@
         }
     },
     "scripts": {
-        "clean": "rm -rf dist es demo",
         "dev": "vite --host 0.0.0.0 --port 8888",
-        "vite-build": "vite build --config vite.demo.config.js",
-        "build": "vite build --config vite.demo.config.js && vite build && tsc lib/main.ts --declaration --emitDeclarationOnly --outFile dist/types.d.ts",
+        "buildVite": "vite build",
+        "build": "tsc lib/main.ts --declaration --emitDeclarationOnly --outDir dist",
         "preview": "vite preview",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

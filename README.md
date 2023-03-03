@@ -1,15 +1,21 @@
 # Progressive Share Button
 
-The _Progressive Share Button_ web component is a simple way to add a share button to your web page that will show the user the OS native share options using the [Web Share API](https://w3c.github.io/web-share/). The "progressive" part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API. If the browser does not support the Web Share API, the component will not display anything.
+The _Progressive Share Button_ web component is a simple way to add a share button to your web page that will show the user the OS native share options using the [Web Share API](https://w3c.github.io/web-share/). The "progressive" part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API. **If the browser does not support the Web Share API, the component will not display anything.**
 
 The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows. If the device type can't be determined, the component will display a Windows share icon.
 
 ## Basic Usage
 
-The most basic usage of the component is to pass the URL to be shared. The component will render a share icon that will open the native share dialog when clicked.
+The most basic usage of the component is to use no attributes. The component will share the current page's URL.
 
 ```html
-Basic Example: <progressive-share-button url="https://example.com" />
+<progressive-share-button />
+```
+
+You may also pass the URL to be shared. The component will share the URL that has been specified.
+
+```html
+<progressive-share-button url="https://example.com" />
 ```
 
 This will render one of the following, depending on the device and browser. This example shows the Windows sharing icon, the Android sharing icon, and the iOS sharing icon.
@@ -26,25 +32,46 @@ _Progressive Share Button_ does not support the sharing of files.
 
 ## Installation as a module
 
-Run the following command to install it.
+The component is available as an [npm](https://www.npmjs.com/package/progressive-share-button) module. Run the following command to install it.
 
 ```bash
 npm install progressive-share-button
 ```
 
 main.js, if installed with npm
+
 ```javascript
+// Import the component, which is the default export, so no curly braces are needed.
 import ProgressiveShareButton from 'progressive-share-button';
-customElements.define('progressive-share-button', ProgressiveShareButton);
+// Initialize the component
+ProgressiveShareButton.init();
 ```
 
-### CDN
+### Customizing the component name
+
+If you want to customize the component name, you can import the element class directly and register it with a different name. Take note of the curly braces used in the import statement. This is a [named import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Importing_specific_features).
+
+
+```javascript
+import { ProgressiveShareButtonClass } from 'progressive-share-button';
+// Initialize the component
+customElements.define('my-share-button', ProgressiveShareButtonClass);
+
+```
+
+### CDN - not tested yet
 
 ~~Not Tested: You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button).~~
 
 ```html
 <!-- script src="https://unpkg.com/progressive-share-button"></script --!>
 ```
+
+## Typescript support
+
+WIP: ~~~The component is written in Typescript and includes a type definition file. If you are using Typescript, you can import the component directly into your project.~~~
+
+
 
 ## Customizing the Component
 
@@ -204,7 +231,7 @@ There are two custom event emitted by the component: `progressive-share-success`
 // example of listening for the custom events
 document.addEventListener('progressive-share-success', (e) => {
   // e.detail contains the share data that was shared
-  console.log('The progressive-share event was heard.', e.detail);
+  console.log('The progressive-share-success event was heard.', e.detail);
 });
 document.addEventListener('progressive-share-fail', (e) => {
   // e.detail contains the error message
