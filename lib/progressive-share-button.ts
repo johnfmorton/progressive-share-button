@@ -154,7 +154,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
     }
 }
 
-function ProgressiveShareButton(): boolean {
+const ProgressiveShareButton = (): boolean => {
     if (typeof navigator.share === 'function') {
         console.log(
             'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
@@ -171,6 +171,8 @@ function ProgressiveShareButton(): boolean {
     )
     return true
 }
+
+;
 
 // export an object with the web component and the function to register it
 export { ProgressiveShareButton, ProgressiveShareButtonClass }

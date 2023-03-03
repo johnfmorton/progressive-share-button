@@ -1,10 +1,10 @@
 // Path: demo-page-assets/demo.ts
 // This is the entry point for the demo page. It's a TypeScript file that
 //  loads in the module that we're buidling with this repo
-import { ProgressiveShareButton } from '../lib/main'
+import { ProgressiveShareButton } from '../lib/progressive-share-button'
 ProgressiveShareButton()
 
-import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from '../lib/main';
+import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from '../lib/progressive-share-button';
 // register the progressive-share-button web component
 // customElements.define('progressive-share-button', ProgressiveShareButton);
 
