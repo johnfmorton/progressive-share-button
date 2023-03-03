@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+}
+
+progressive-share-button.example-1::part(shareButton) {
+      background-color: blueviolet;
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+
+    progressive-share-button.example-1:hover::part(shareButton) {
+      background-color: blue;
+    }
+
+    progressive-share-button.example-1::part(shareIcon) {
+      color: white;
+    }
+
+    progressive-share-button.example-1:hover::part(shareIcon) {
+      color: orange;
+    }
+
+    progressive-share-button.text-share-example-1::part(shareButton) {
+      font-size: 1rem;
+      text-decoration: underline;
+      color: blue;
+    }
+
+    progressive-share-button.text-share-example-2::part(shareButton) {
+      background: red;
+      color: white;
+      font-size: 0.75rem;
+      border-radius: 1rem;
+      border: 1px solid black;
+      padding: 0.25rem 0.75rem;
+    }
