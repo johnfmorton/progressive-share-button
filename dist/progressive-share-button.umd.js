@@ -1,3 +1,10 @@
+/**
+ * name: progressive-share-button
+ * version: v1.0.0
+ * description: A web componet that creates a OS-native share button.
+ * author: John F. Morton <john@johnfmorton.com> (https://supergeekery.com)
+ * repository: https://github.com/johnfmorton/progressive-share-button
+ */
 (function(global, factory) {
   typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, factory(global["progressive-share-button"] = {}));
 })(this, function(exports2) {

@@ -77,10 +77,12 @@
   </p>
 
   <hr>
-  <p>The following examples demonstrate overriding the icon built into the component by placing content, the text "Share this link," in the slot inside the component.</p>
+  <p>The following two examples demonstrate overriding the icon built into the component by placing content, the text "Share this link," in the slot inside the component.</p>
+
+  <p>The first shows how to use the ::part attribute to style the `shareButton` in the web component to make the button look like a regular link.</p>
 
   <pre class="whitespace-pre-line">
-  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
+  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0&gt;<b class="text-blue-600">Share this link</b>&lt;/progressive-share-button&gt;
 
   &lt;style&gt;
     progressive-share-button.text-share-example-1::part(shareButton) {
@@ -94,9 +96,11 @@
 
   <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0>Share this link</progressive-share-button></p>
   <hr>
-  <br>
+
+  <p>The second example shows how to use the ::part attribute to style the `shareButton` in the web component to make the button look like red button.</p>
+
   <pre class="whitespace-pre-line">
-  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
+  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0&gt;<b class="text-blue-600">Share this link</b>&lt;/progressive-share-button&gt;
 
   &lt;style&gt;
     progressive-share-button.text-share-example-2::part(shareButton) {

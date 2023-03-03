@@ -1,3 +1,10 @@
+/**
+ * name: progressive-share-button
+ * version: v1.0.0
+ * description: A web componet that creates a OS-native share button.
+ * author: John F. Morton <john@johnfmorton.com> (https://supergeekery.com)
+ * repository: https://github.com/johnfmorton/progressive-share-button
+ */
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => {
