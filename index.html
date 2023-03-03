@@ -9,8 +9,8 @@
 </head>
 
 <body>
-  <h1>Progressive Share Button Demo Page</h1>
-
+ <div class=" max-w-screen-lg mx-auto p-6">
+  <h1 class=" text-red-500 text-3xl font-bold py-4">Progressive Share Button Demo Page</h1>
   <p>
     The <a href="https://github.com/johnfmorton/progressive-share-button">Progressive Share Button</a> is a web component that will only be displayed if the browser supports the Web Share API. If the browser does not support the Web Share API, the button will not be displayed. This is a progressive enhancement, which means that the button will only be displayed if the browser supports the Web Share API. <b class="bg-yellow">If the browser does not support the Web Share API, the button will not be displayed.</b>
   </p>
@@ -19,9 +19,7 @@
 
   <p>The most basic usage is using no attributes. This makes the component share the URL of the current page.</p>
 
-  <pre>
-&lt;progressive-share-button /&gt;
-</pre>
+  <pre>&lt;progressive-share-button /&gt;</pre>
 
 
   <p><progressive-share-button /></p>
@@ -30,9 +28,7 @@
 
   <p>You can specify the URL and the title as demonstrated in the next example.</p>
 
-  <pre>
-&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=0 /&gt;
-</pre>
+  <pre>&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=0 /&gt;</pre>
 
   <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=0 /></p>
 
@@ -40,91 +36,20 @@
 
   <p>The following is the same as the basic example above, but with <b>debug mode enabled</b>. Debug mode will display the button even if the browser does not support the Web Share API. (If you are on Chrome on a Mac, this will be the only instance of the share button you will see on this page.) <span class="bg-yellow">Because the following button has debug turn on, clicking the share icon will not activate the share dialog box but instead will console.log the data that will be shared.</span></p>
 
-<pre>
-&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 /&gt;
-</pre>
+  <pre class="whitespace-pre-line">
+  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 /&gt;
+  </pre>
 
-  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 id="debug-example"/></p>
+  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 id="debug-example" /></p>
 
   <hr>
 
   <p>The following uses the 'smart-share' feature which will concatenate the title, text and URL into a single string and then share that string. This helps deal with some inconsistent implementations in the Web Share API.</p>
 
-  <pre>
-&lt;progressive-share-button title="Progressive Share Button" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://github.com/johnfmorton/progressive-share-button" smart-share=1 icon-size="20" debug=0 class="example-1" /&gt;
+  <pre class="whitespace-pre-line">
+  &lt;progressive-share-button title="Progressive Share Button" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://github.com/johnfmorton/progressive-share-button" smart-share=1 icon-size="20" debug=0 class="example-1" /&gt;
 
-&lt;style&gt;
-  progressive-share-button.example-1::part(shareButton) {
-    background-color: blueviolet;
-    border-radius: 5px;
-    padding: 0.5rem;
-  }
-
-  progressive-share-button.example-1:hover::part(shareButton) {
-    background-color: blue;
-  }
-
-  progressive-share-button.example-1::part(shareIcon) {
-    color: white;
-  }
-
-  progressive-share-button.example-1:hover::part(shareIcon) {
-    color: orange;
-  }
-&lt;/style&gt;
-</pre>
-
-  <p>
-    <progressive-share-button title="Progressive Share Button" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://github.com/johnfmorton/progressive-share-button" smart-share=1 icon-size="20" debug=0 class="example-1"></progressive-share-button>
-  </p>
-
-  <hr>
-  <p>The following examples demonstrate overriding the icon built into the component by placing content, the text "Share this link," in the slot inside the component.</p>
-
-  <pre>
-&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
-
-&lt;style&gt;
-  progressive-share-button.text-share-example-1::part(shareButton) {
-    font-size: 1rem;
-    text-decoration: underline;
-    color: blue;
-  }
-&lt;/style&gt;
-</pre>
-
-
-  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0>Share this link</progressive-share-button></p>
-  <hr>
-  <br>
-  <pre>
-&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
-
-&lt;style&gt;
-  progressive-share-button.text-share-example-2::part(shareButton) {
-    background: red;
-    color: white;
-    font-size: 0.75rem;
-    border-radius: 1rem;
-    border: 1px solid black;
-    padding: 0.25rem 0.75rem;
-  }
-&lt;/style&gt;
-
-</pre>
-
-  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0>Share this link</progressive-share-button></p>
-  <hr>
-
-  <!--
-  Example of how to use the progressive-share-button web component with a custom name
-
-  <p>Custom Share Text Example 2: <progressive-share-button-custom-name url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0></progressive-share-button-custom-name></p>
-  <hr>
-
--->
-
-  <style>
+  &lt;style&gt;
     progressive-share-button.example-1::part(shareButton) {
       background-color: blueviolet;
       border-radius: 5px;
@@ -142,13 +67,36 @@
     progressive-share-button.example-1:hover::part(shareIcon) {
       color: orange;
     }
+  &lt;/style&gt;
+  </pre>
 
+  <p>
+    <progressive-share-button title="Progressive Share Button" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://github.com/johnfmorton/progressive-share-button" smart-share=1 icon-size="20" debug=0 class="example-1"></progressive-share-button>
+  </p>
+
+  <hr>
+  <p>The following examples demonstrate overriding the icon built into the component by placing content, the text "Share this link," in the slot inside the component.</p>
+
+  <pre class="whitespace-pre-line">
+  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
+
+  &lt;style&gt;
     progressive-share-button.text-share-example-1::part(shareButton) {
       font-size: 1rem;
       text-decoration: underline;
       color: blue;
     }
+  &lt;/style&gt;
+  </pre>
 
+
+  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-1" debug=0>Share this link</progressive-share-button></p>
+  <hr>
+  <br>
+  <pre class="whitespace-pre-line">
+  &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0&gt;Share this link&lt;/progressive-share-button&gt;
+
+  &lt;style&gt;
     progressive-share-button.text-share-example-2::part(shareButton) {
       background: red;
       color: white;
@@ -157,22 +105,25 @@
       border: 1px solid black;
       padding: 0.25rem 0.75rem;
     }
+  &lt;/style&gt;
 
-    pre {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      white-space: pre-wrap;
-    }
+  </pre>
 
-    .bg-yellow {
-      background-color: blanchedalmond;
-      padding: 0 3px;
-    }
+  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0>Share this link</progressive-share-button></p>
+  <hr>
+
+  <!--
+    Example of how to use the progressive-share-button web component with a custom name
+
+    <p>Custom Share Text Example 2: <progressive-share-button-custom-name url="https://github.com/johnfmorton/progressive-share-button" class="text-share-example-2" debug=0></progressive-share-button-custom-name></p>
+    <hr>
+
+  -->
+
+  <style>
 
   </style>
+ </div>
 </body>
 
 </html>

@@ -26,7 +26,7 @@ document.addEventListener('progressive-share-fail', (e) => {
     console.log('The progressive-share-fail event was heard.', detail)
 })
 
-import './style.css';
+import './style.pcss';
 
 // From here, you can add any additional JavaScript you want to run on the demo page.
 // For example, you could add a button that calls a function in the module.
