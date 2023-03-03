@@ -41,6 +41,7 @@ jobs:
           message: "Build files"
           # add dist folder and the @types folder
           add: "dist"
+          force: true
           commit: --signoff
           push: true
       - name: NPM Publish
