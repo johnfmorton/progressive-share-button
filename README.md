@@ -4,6 +4,11 @@ The _Progressive Share Button_ web component is a simple way to add a share butt
 
 The web component is a wrapper around the [Web Share API](https://w3c.github.io/web-share/) that attempts to display a share icon appropriate to the user's device with icons that will be recognizable to iOS/Mac, Android and Windows. If the device type can't be determined, the component will display a Windows share icon.
 
+## Demo
+
+Check out the demo page, [https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/), to see the component in action.
+
+
 ## Basic Usage
 
 The most basic usage of the component is to use no attributes. The component will share the current page's URL.
@@ -44,7 +49,7 @@ main.js, if installed with npm
 // Import the component, which is the default export, so no curly braces are needed.
 import ProgressiveShareButton from 'progressive-share-button';
 // Initialize the component
-ProgressiveShareButton.init();
+ProgressiveShareButton();
 ```
 
 ### Customizing the component name
@@ -69,9 +74,7 @@ customElements.define('my-share-button', ProgressiveShareButtonClass);
 
 ## Typescript support
 
-WIP: ~~~The component is written in Typescript and includes a type definition file. If you are using Typescript, you can import the component directly into your project.~~~
-
-
+The component is written in Typescript and includes type definitions. If you are using Typescript, you can import the component directly into your project and see code completion hints. See the [Custom events](#custom-events) section for more information about using the custom event type definitions.
 
 ## Customizing the Component
 
@@ -264,11 +267,6 @@ document.addEventListener('progressive-share-fail', (e) => {
   }
 })
 ```
-
-## Demo
-
-[https://johnfmorton.github.io/progressive-share-button/](https://johnfmorton.github.io/progressive-share-button/)
-
 ## License
 
 MIT
