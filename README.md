@@ -220,12 +220,12 @@ https://w3c.github.io/web-share/demos/share-files.html
 
 There are two custom event emitted by the component: `progressive-share-success` and `progressive-share-fail`.
 
-| Event name | Description |
-| --- | --- |
-| `progressive-share-success` | Emitted when the Web Share API is supported and the data is successfully shared. |
-| `progressive-share-fail` | Emitted when the Web Share API is supported but the data is not successfully shared. This is typically emitted when a user opens the share dialog box but exits out of it without sharing. |
+| Event name | Description | TypeScript type |
+| --- | --- | --- |
+| `progressive-share-success` | Emitted when the Web Share API is supported and the data is successfully shared. | `ProgressiveShareSuccessEvent` |
+| `progressive-share-fail` | Emitted when the Web Share API is supported but the data is not successfully shared. This is typically emitted when a user opens the share dialog box but exits out of it without sharing. | `ProgressiveShareFailEvent` |
 
-If you're writing in Typescript, you can import the custom event types like this:
+If you're writing in Typescript, you can import the custom event types and use them like this:
 
 ```typescript
 import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from 'progressive-share-button';
