@@ -23,7 +23,9 @@ You may also pass the URL to be shared. The component will share the URL that ha
 <progressive-share-button url="https://example.com" />
 ```
 
-This will render one of the following, depending on the device and browser. This example shows the Windows sharing icon, the Android sharing icon, and the iOS sharing icon.
+This will render one of the following, depending on the device and browser.
+
+This example image below shows the Windows sharing icon, the Android sharing icon, and the iOS/Mac sharing icon.
 
 ![Basic Example](./img/button-examples.png)
 
