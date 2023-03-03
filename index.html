@@ -12,7 +12,9 @@
  <div class=" max-w-screen-lg mx-auto p-6">
   <h1 class=" text-red-500 text-3xl font-bold py-4">Progressive Share Button Demo Page</h1>
   <p>
-    The <a href="https://github.com/johnfmorton/progressive-share-button">Progressive Share Button</a> is a web component that will only be displayed if the browser supports the Web Share API. If the browser does not support the Web Share API, the button will not be displayed. This is a progressive enhancement, which means that the button will only be displayed if the browser supports the Web Share API. <b class="bg-yellow">If the browser does not support the Web Share API, the button will not be displayed.</b>
+    The <a href="https://github.com/johnfmorton/progressive-share-button">Progressive Share Button</a> web component is a simple way to add a share button to your web page that will show the user the OS native share options using the <a href="https://w3c.github.io/web-share/">Web Share API</a>. The “progressive” part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API.</p>
+   <p>
+    <b>If the browser does not support the Web Share API, the component will not display anything.</b> If the browser you’re viewing this page on supports the API, you’ll see many instances of the share button in the examples below.</p>
   </p>
 
   <hr>
@@ -44,7 +46,7 @@
 
   <hr>
 
-  <p>The following uses the 'smart-share' feature which will concatenate the title, text and URL into a single string and then share that string. This helps deal with some inconsistent implementations in the Web Share API.</p>
+  <p>The following example uses the <b>“smart-share”</b> feature which will concatenate the title, text and URL into a single string and then share that string. This helps deal with some inconsistent implementations in the Web Share API.</p>
 
   <pre class="whitespace-pre-line">
   &lt;progressive-share-button title="Progressive Share Button" text="Check out this cool web component that creates a share button that will only be displayed if the browser supports the Web Share API." url="https://github.com/johnfmorton/progressive-share-button" smart-share=1 icon-size="20" debug=0 class="example-1" /&gt;
@@ -53,7 +55,7 @@
     progressive-share-button.example-1::part(shareButton) {
       background-color: blueviolet;
       border-radius: 5px;
-      padding: 0.5rem;
+      padding: 0.45rem 0.75rem 0.75rem;
     }
 
     progressive-share-button.example-1:hover::part(shareButton) {
