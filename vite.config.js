@@ -1,5 +1,7 @@
 const path = require('path')
 const { defineConfig } = require('vite')
+import banner from 'vite-plugin-banner'
+import pkg from './package.json'
 
 module.exports = defineConfig({
     build: {
@@ -9,5 +11,10 @@ module.exports = defineConfig({
             fileName: (format) => `progressive-share-button.${format}.js`,
         },
         minify: false,
-    },
+  },
+  plugins: [
+    banner(
+      `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * repository: ${pkg.repository.url}\n */`
+    ),
+  ],
 })
