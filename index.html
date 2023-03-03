@@ -5,27 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progressive Share Button Demo Page</title>
-  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="demo-page-assets/demo.ts"></script>
 </head>
 
 <body>
-  <script type="module">
-    // import the progressive-share-button web component from the lib folder, which is where the web component is located in the project. You'll likely import it from a CDN or NPM package.
-    import ProgressiveShareButton from './lib/main.js';
-    // import ProgressiveShareButton from './lib/main.ts';
-    ProgressiveShareButton.init()
-
-    // add an event listener to the progressive-share-button web component custom event 'share'
-    document.addEventListener('progressive-share-success', (e) => {
-      // e.detail contains the share data
-      console.log('The progressive-share-success event was heard.', e.detail);
-    });
-    document.addEventListener('progressive-share-fail', (e) => {
-      // e.detail contains the share data
-      console.log('The progressive-share-fail event was heard.', e.detail);
-    });
-  </script>
-
   <h1>Progressive Share Button Demo Page</h1>
 
   <p>

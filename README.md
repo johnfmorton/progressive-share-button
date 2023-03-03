@@ -225,18 +225,44 @@ There are two custom event emitted by the component: `progressive-share-success`
 | `progressive-share-success` | Emitted when the Web Share API is supported and the data is successfully shared. |
 | `progressive-share-fail` | Emitted when the Web Share API is supported but the data is not successfully shared. This is typically emitted when a user opens the share dialog box but exits out of it without sharing. |
 
+If you're writing in Typescript, you can import the custom event types like this:
 
+```typescript
+import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from 'progressive-share-button';
+document.addEventListener('progressive-share-success', (e) => {
+  const { detail } = e as ProgressiveShareSuccessEvent
+    // e.detail contains the share data
+  // check if e.detail exists
+  if (detail) {
+      console.log('The progressive-share-success event was heard.', detail)
+  }
+})
+document.addEventListener('progressive-share-fail', (e) => {
+    const { detail } = e as ProgressiveShareFailEvent
+    // check if e.detail exists
+    if (detail) {
+    console.log('The progressive-share-fail event was heard.', detail)
+  }
+})
+```
+
+Or if you're writing in Javascript, you can skip importing the types and just use the `detail` property of the event object.
 
 ```javascript
-// example of listening for the custom events
 document.addEventListener('progressive-share-success', (e) => {
-  // e.detail contains the share data that was shared
-  console.log('The progressive-share-success event was heard.', e.detail);
-});
+  const { detail } = e
+  // check if e.detail exists
+  if (detail) {
+      console.log('The progressive-share-success event was heard.', detail)
+  }
+})
 document.addEventListener('progressive-share-fail', (e) => {
-  // e.detail contains the error message
-  console.log('The progressive-share-fail event was heard.', e.detail);
-});
+    const { detail } = e
+    // check if e.detail exists
+  if (detail) {
+    console.log('The progressive-share-fail event was heard.', detail)
+  }
+})
 ```
 
 ## Demo

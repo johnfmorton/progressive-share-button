@@ -1,4 +1,13 @@
-export class ProgressiveShareButtonClass extends HTMLElement {
+export interface ProgressiveShareSuccessEvent extends Event {
+    // Define the properties of your custom event's detail object
+    detail: any
+}
+export interface ProgressiveShareFailEvent extends Event {
+    // Define the properties of your custom event's detail object
+    detail: any
+}
+
+class ProgressiveShareButtonClass extends HTMLElement {
     iconSize: () => string
     constructor() {
         super()
@@ -99,12 +108,25 @@ export class ProgressiveShareButtonClass extends HTMLElement {
             data.url = window.location.href
         }
 
-        let shareEvent = new CustomEvent('progressive-share-success', {
-            bubbles: true,
-            cancelable: false,
-            composed: true,
-            detail: data,
-        })
+        // create the shareEvent of the type ProgressShareEvent defined above
+      let shareEvent: ProgressiveShareSuccessEvent = new CustomEvent(
+          'progressive-share-success',
+          {
+              bubbles: true,
+              cancelable: false,
+              composed: true,
+              detail: data,
+          }
+      )
+
+
+
+        // let shareEvent = new CustomEvent('progressive-share-success', {
+        //     bubbles: true,
+        //     cancelable: false,
+        //     composed: true,
+        //     detail: data,
+        // })
         if (navigator.share) {
             if (debug == 1) {
                 console.debug('data to be shared', data)
@@ -115,15 +137,13 @@ export class ProgressiveShareButtonClass extends HTMLElement {
                         this.dispatchEvent(shareEvent)
                     })
                     .catch((e) => {
-                        let shareEventFail = new CustomEvent(
-                            'progressive-share-fail',
-                            {
+                        let shareEventFail: ProgressiveShareSuccessEvent =
+                            new CustomEvent('progressive-share-fail', {
                                 bubbles: true,
                                 cancelable: false,
                                 composed: true,
                                 detail: e,
-                            }
-                        )
+                            })
                         this.dispatchEvent(shareEventFail)
                     })
             }
@@ -134,7 +154,7 @@ export class ProgressiveShareButtonClass extends HTMLElement {
     }
 }
 
-function init(): boolean {
+function ProgressiveShareButton(): boolean {
     if (typeof navigator.share === 'function') {
         console.log(
             'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
@@ -153,9 +173,7 @@ function init(): boolean {
 }
 
 // export an object with the web component and the function to register it
-export default {
-    init,
-}
+export { ProgressiveShareButton, ProgressiveShareButtonClass }
 
 // register the progressive-share-button web component
 // customElements.define('progressive-share-button', ProgressiveShareButton);

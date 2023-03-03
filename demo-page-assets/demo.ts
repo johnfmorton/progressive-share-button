@@ -3,6 +3,8 @@
 //  loads in the module that we're buidling with this repo
 import { ProgressiveShareButton } from '../lib/main'
 ProgressiveShareButton()
+
+import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from '../lib/main';
 // register the progressive-share-button web component
 // customElements.define('progressive-share-button', ProgressiveShareButton);
 
@@ -10,17 +12,18 @@ ProgressiveShareButton()
 // import {ProgressiveShareButtonElement}  from './lib/main.ts';
 // customElements.define('progressive-share-button-custom-name', ProgressiveShareButtonElement);
 
-// add an event listener to the progressive-share-button web component custom event 'share'
 document.addEventListener('progressive-share-success', (e) => {
+  const { detail } = e as ProgressiveShareSuccessEvent
     // e.detail contains the share data
   // check if e.detail exists
-  if (e.detail !== undefined) {
-    console.log('The progressive-share-success event was heard.', e.detail)
+  if (detail) {
+      console.log('The progressive-share-success event was heard.', detail)
   }
 })
 document.addEventListener('progressive-share-fail', (e) => {
+    const { detail } = e as ProgressiveShareFailEvent
     // e.detail contains the share data
-    console.log('The progressive-share-fail event was heard.', e.detail)
+    console.log('The progressive-share-fail event was heard.', detail)
 })
 
 import './style.css';
