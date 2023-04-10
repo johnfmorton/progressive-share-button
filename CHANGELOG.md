@@ -5,20 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2023-04-10
 
-## [1.0.0-alpha.11] - 2021-03-01
+### Fixed
+
+- There are no code changes to this version, but the documentation now correctly shows the correct import statement for the module. The previous version had the incorrect import statement showing the module having a default export, but it does not. The import statement should be `import { ProgressiveShareButton } from 'progressive-share-button';`.
+- Fixed the dates in this changelog. I had 2021 instead of 2023. I'm not sure how I missed that!
+
+
+## [1.0.0] - 2023-03-04
+
+- Initial release of 1.0.0.
+
+## [1.0.0-alpha.11] - 2023-03-01
 
 ### Fixed
 
 - Fixed: Previous solution didn't fix build system issue. Switched the build script to use `tsc` instead of `vite` to build the package.
 
-## [1.0.0-alpha.10] - 2021-03-01
+## [1.0.0-alpha.10] - 2023-03-01
 
 ### Fixed
 
 - Fixed: The build system didn't include the @types directory in the published package. This has been fixed.
 
-## [1.0.0-alpha.9] - 2021-03-01
+## [1.0.0-alpha.9] - 2023-03-01
 
 ### Added
 

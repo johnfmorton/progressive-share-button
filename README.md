@@ -49,7 +49,7 @@ main.js, if installed with npm
 
 ```javascript
 // Import the component
-import ProgressiveShareButton from 'progressive-share-button';
+import { ProgressiveShareButton } from 'progressive-share-button';
 // Initialize the component
 ProgressiveShareButton();
 ```

@@ -1,6 +1,6 @@
 {
     "name": "progressive-share-button",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A web componet that creates a OS-native share button.",
     "files": [
         "dist"
