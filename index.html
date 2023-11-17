@@ -19,6 +19,8 @@
 
   <hr>
 
+  <h2 class="text-2xl font-bold pt-4">Basic usage</h2>
+
   <p>The most basic usage is using no attributes. This makes the component share the URL of the current page.</p>
 
   <pre>&lt;progressive-share-button /&gt;</pre>
@@ -36,15 +38,43 @@
 
   <hr>
 
+  <h2 class="text-2xl font-bold pt-4">Debugging</h2>
+
   <p>The following is the same as the basic example above, but with <b>debug mode enabled</b>. Debug mode will display the button even if the browser does not support the Web Share API. (If you are on Chrome on a Mac, this will be the only instance of the share button you will see on this page.) <span class="bg-yellow">Because the following button has debug on, `debug=1`, clicking the share icon will not activate the share dialog box but instead will console.log the data that will be shared.</span></p>
 
   <pre class="whitespace-pre-line">
   &lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 /&gt;
   </pre>
 
-  <p><progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 id="debug-example" /></p>
+  <p>Debug and show the share icon as determined by the component and its best guess at your operating system: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 id="debug-example" /></p>
+
+  <pre>&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 os="ios" id="debug-example-ios" />&lt;/p></pre>
+
+  <p>Debug and show the iOS/Mac share icon: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 os="ios" id="debug-example-ios" /></p>
+
+  <pre>&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 os="android" id="debug-example-android" /></pre>
+
+  <p>Debug and show the Android share icon: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 os="android" id="debug-example-android" /></p>
+
+<pre>&lt;progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 os="windows" id="debug-example-windows" /></pre>
+
+  <p>Debug and show the Windows / default share icon: <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" os="windows" debug=1 id="debug-example-windows" /></p>
+
+
+
+<p>The following shows the bounding box in neon green for each icon to help you see the icons and their size relation to each other.</p>
+
+<div class="mb-6">
+    <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 style='background-color: greenyellow;' os="ios"></progressive-share-button>
+    <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 style='background-color: greenyellow;' os="android" /></progressive-share-button>
+    <progressive-share-button url="https://github.com/johnfmorton/progressive-share-button" title="Visit the Progressive Share Button homepage" debug=1 style='background-color: greenyellow;' os="windows" /></progressive-share-button>
+
+</div>
+
 
   <hr>
+
+  <h2 class="text-2xl font-bold pt-4">Smart-share</h2>
 
   <p>The following example uses the <b>“smart-share”</b> feature which will concatenate the title, text and URL into a single string and then share that string. This helps deal with some inconsistent implementations in the Web Share API.</p>
 
@@ -77,6 +107,8 @@
   </p>
 
   <hr>
+
+  <h2 class="text-2xl font-bold pt-4">Customizing the button style</h2>
   <p>The following two examples demonstrate overriding the icon built into the component by placing content, the text "Share this link," in the slot inside the component.</p>
 
   <p>The first shows how to use the ::part attribute to style the `shareButton` in the web component to make the button look like a regular link.</p>

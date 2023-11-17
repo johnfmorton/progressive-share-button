@@ -87,9 +87,11 @@ The component accepts the following attributes:
 | title | string | null | The title of the page to be shared. |
 | text | string | null | The text string to be shared. |
 | url | string | null | The URL to be shared. |
-| smart-share | boolean | false | Accepts 0, false, 1, or true. If true, the component concatenate the title, text, and url into a single string. See the [_Why use smart-share_](#why-use-the-smart-share-feature) section below for more information. |
-| icon-size | string or int | 24 | The size of the SVG share icon. The icon is rendered in a square. If an integer is passed, the component assumes the value is given in pixels, 24 becomes "24px", but you may also pass a string with a valid CSS size, like "1rem". |
-| debug | boolean | false | Accepts 0, false, 1, or true. If true is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. No custom events will be fired. |
+| smart-share | boolean | false | Accepts `0`, `false`, `1`, or `true`. If `true`, the component concatenate the `title`, `text`, and `url` into a single string. See the [_Why use smart-share_](#why-use-the-smart-share-feature) section below for more information. |
+| icon-size | string or int | 24 | The size of the SVG share icon. The icon is rendered in a square. If an integer is passed, the component assumes the value is given in pixels, `24` becomes `24px`, but you may also pass a string with a valid CSS size, like `1rem`. |
+| os | string or null | auto | Set to `android`, `ios`, or `windows` to override the automatic detection of the user's operating system. This setting is useful during development with the `debug` option. For production, leaving it unset or set to `auto` will provide the best user experience for end users. |
+| debug | boolean | false | Accepts `0`, `false`, `1`, or `true`. If `true` is passed, the share icon will be displayed even if the Web Share API is not supported in the browser. The share behavior will *not* open the share dialog but, but instead will pass the data to be shared to the console for debugging. No custom events will be fired. |
+
 ## Styling
 
 The component uses the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) to encapsulate the styles. This means that the styles are not inherited by the parent page. To style the component, you must use the [::part()](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) pseudo-element. There are two parts that can be styled: `shareButton` and `shareIcon`.

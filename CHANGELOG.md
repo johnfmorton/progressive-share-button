@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2023-11-17
+
+## Added
+
+- A new attribute has been added to the component called `os`. This option allows you to force the button to use a specific operating system icon. The default is `auto` which will use the operating system of the device that the button is being displayed on. The other options are `ios`, `android`, and `windows`. Setting this option is useful during development when combined with the `debug` option to force the button to use a specific icon set regardless of the device the button is being viewed on. For production, leaving it unset or set to `auto` will provide the best user experience for end users.
+
+### Fixed
+
+- The share icons between iOS, Android and Windows had different line widths. The icons have been remade to have the same line widths to provide a more consistent look across platforms.
+- Fixed a typo in a console log message.
+
 ## [1.0.1] - 2023-04-10
 
 ### Fixed
