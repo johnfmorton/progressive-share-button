@@ -1,6 +1,6 @@
 /**
  * name: progressive-share-button
- * version: v1.0.0
+ * version: v1.0.1
  * description: A web componet that creates a OS-native share button.
  * author: John F. Morton <john@johnfmorton.com> (https://supergeekery.com)
  * repository: https://github.com/johnfmorton/progressive-share-button
@@ -27,7 +27,7 @@ var __publicField = (obj, key, value) => {
         } else if (size) {
           return size;
         } else {
-          return 24 + "px";
+          return "24px";
         }
       };
       function _isNumeric(value) {
