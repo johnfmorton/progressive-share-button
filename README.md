@@ -66,12 +66,17 @@ customElements.define('my-share-button', ProgressiveShareButtonClass);
 
 ```
 
-### CDN - not tested yet
+### CDN
 
-~~Not Tested: You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button).~~
+You can also use the component directly from a CDN. The component is available on [unpkg](https://unpkg.com/progressive-share-button). The following example shows how to use the component from unpkg. Note the use of `?module` at the end of the URL in the import statement.
 
 ```html
-<!-- script src="https://unpkg.com/progressive-share-button"></script --!>
+<script type="module">
+  import { ProgressiveShareButton } from 'https://unpkg.com/progressive-share-button?module';
+  // Initialize the component
+  ProgressiveShareButton();
+  </script>
+  <progressive-share-button title="Hello World!" url="https://example.com" debug="true"></progressive-share-button>
 ```
 
 ## Typescript support
