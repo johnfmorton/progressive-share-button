@@ -75,8 +75,8 @@ You can also use the component directly from a CDN. The component is available o
   import { ProgressiveShareButton } from 'https://unpkg.com/progressive-share-button?module';
   // Initialize the component
   ProgressiveShareButton();
-  </script>
-  <progressive-share-button title="Hello World!" url="https://example.com" debug="true"></progressive-share-button>
+</script>
+<progressive-share-button title="Hello World!" url="https://example.com" debug="true"></progressive-share-button>
 ```
 
 ## Typescript support
