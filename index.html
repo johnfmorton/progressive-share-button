@@ -4,28 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progressive Share Button Demo Page</title>
+  <title>Progressive Share Button - Demo Page</title>
   <script type="module" src="demo-page-assets/demo.ts"></script>
 </head>
 
 <body>
- <div class=" max-w-screen-lg mx-auto p-6">
-  <h1 class=" text-red-500 text-3xl font-bold py-4">Progressive Share Button Demo Page</h1>
+ <div class=" max-w-screen-lg mx-auto p-6 py-16 prose">
+  <h1 class="text-blue-800 text-4xl font-bold ">Progressive Share Button</h1>
+  <h2>About this demo page</h2>
   <p>
-    The <a href="https://github.com/johnfmorton/progressive-share-button">Progressive Share Button</a> web component is a simple way to add a share button to your web page that will show the user the OS native share options using the <a href="https://w3c.github.io/web-share/">Web Share API</a>. The “progressive” part of the name comes from the fact that the component will only display the share button if the browser supports the Web Share API.</p>
-   <p>
-    <b>If the browser does not support the Web Share API, the component will not display anything.</b> If the browser you’re viewing this page on supports the API, you’ll see many instances of the share button in the examples below.</p>
-  </p>
+    This page demonstrates how to use the <a href="https://github.com/johnfmorton/progressive-share-button">Progressive Share Button</a> web component. The component is an easy way to add a share button to a web page using the OS native share options by using the <a href="https://w3c.github.io/web-share/">Web Share API</a>. The “progressive” portion of the name refers to how the component deals with browser support for the API. The button displays the OS specific share button if the browser supports the Web Share API. It will simply not display and throw no errors when support is lacking.</p>
 
+    <p>Read about support on the <a href="https://caniuse.com/web-share">Can I Use page for the Web Share API</a>.</p>
+   <p id="supported">
+   </p>
   <hr>
-
   <h2 class="text-2xl font-bold pt-4">Basic usage</h2>
-
   <p>The most basic usage is using no attributes. This makes the component share the URL of the current page.</p>
-
   <pre>&lt;progressive-share-button /&gt;</pre>
-
-
   <p><progressive-share-button /></p>
 
   <hr>
@@ -159,8 +155,44 @@
   -->
 
   <style>
+    .supported {
+      background-color: greenyellow;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .not-supported {
+      background-color: #B72911;
+      color: white;
+      padding: 1rem;
+      border-radius: 5px;
+    }
 
   </style>
+    <script>
+      const supported = document.getElementById('supported');
+      if (typeof navigator.share === 'function') {
+        console.log(
+          'The Web Share API is supported. Set the message for the demo page.'
+        )
+        supported?.classList.add('supported');
+        if (supported) {
+          debugger;
+          supported.innerHTML = 'The Web Share API is supported in your browser. You should see the all of the share button examples.';
+        }
+
+
+      } else {
+        console.log(
+          'The Web Share API is not supported. Set the message for the demo page.'
+        )
+        supported?.classList.add('not-supported');
+        if (supported) {
+          supported.innerHTML = 'Unfortunately, the Web Share API is not supported in your browser. You will only see the share button examples that have the debug attribute set to 1.';
+        }
+      }
+
+    </script>
  </div>
 </body>
 

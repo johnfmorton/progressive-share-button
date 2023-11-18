@@ -30,3 +30,29 @@ import './style.pcss';
 
 // From here, you can add any additional JavaScript you want to run on the demo page.
 // For example, you could add a button that calls a function in the module.
+
+// test for support of the Web Share API
+
+// if (typeof navigator.share === 'function') {
+//   console.log(
+//     'The Web Share API is supported. Set the message for the demo page.'
+//   )
+
+//   const supported = document.getElementById('supported');
+//   supported?.classList.add('supported');
+//   if (supported) {
+//     supported.innerHTML = 'The Web Share API is supported.';
+//   }
+
+
+// } else {
+//   console.log(
+//     'The Web Share API is not supported. Set the message for the demo page.'
+//   )
+
+//   const supported = document.getElementById('supported');
+//   supported?.classList.add('not-supported');
+//   if (supported) {
+//     supported.innerHTML = 'The Web Share API is not supported.';
+//   }
+// }
