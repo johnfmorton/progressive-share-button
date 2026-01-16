@@ -1,6 +1,6 @@
 /**
  * name: progressive-share-button
- * version: v1.0.3
+ * version: v1.0.4
  * description: A web componet that creates a OS-native share button.
  * author: John F. Morton <john@johnfmorton.com> (https://supergeekery.com)
  * repository: https://github.com/johnfmorton/progressive-share-button
