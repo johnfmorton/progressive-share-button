@@ -16,7 +16,9 @@ class ProgressiveShareButtonClass extends HTMLElement {
     super();
     __publicField(this, "iconSize");
     __publicField(this, "osOverride");
+    __publicField(this, "boundShare");
     this.attachShadow({ mode: "open" });
+    this.boundShare = this.share.bind(this);
     this.iconSize = () => {
       const size = this.getAttribute("icon-size") ?? "";
       if (_isNumeric(size)) {
@@ -58,21 +60,22 @@ class ProgressiveShareButtonClass extends HTMLElement {
                       margin: 0;
                       cursor: pointer;
                     }
-                    :host(:hover) {
-                    }
                   </style>
                   <button part="shareButton">
                   <slot>
                   ${_whichIcon(this.osOverride())}
                   </slot>
                   </button>`;
-        this.addEventListener("click", this.share);
+        this.addEventListener("click", this.boundShare);
       }
     } else {
       console.warn(
         "ProgressiveShareButton disabled due to lack of Web Share API support on this browser."
       );
     }
+  }
+  disconnectedCallback() {
+    this.removeEventListener("click", this.boundShare);
   }
   share() {
     const debug = _getBoolean(this.getAttribute("debug"));
@@ -114,7 +117,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
       }
     );
     if (navigator.share) {
-      if (debug == 1) {
+      if (debug) {
         console.debug("data to be shared", data);
       } else {
         navigator.share(data).then(() => {
@@ -137,7 +140,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
 const ProgressiveShareButton = () => {
   if (typeof navigator.share === "function") {
     console.log(
-      "ProgressiveShareButton support initialized. <progressive-share-success /> element now available"
+      "ProgressiveShareButton support initialized. <progressive-share-button> element now available"
     );
   } else {
     console.log(
@@ -188,11 +191,10 @@ const _whichIcon = (osOverride) => {
   }
 };
 function _getBoolean(stringValue) {
-  var _a;
   if (!stringValue) {
     return false;
   }
-  switch ((_a = stringValue == null ? void 0 : stringValue.toLowerCase()) == null ? void 0 : _a.trim()) {
+  switch (stringValue.toLowerCase().trim()) {
     case "true":
     case "1":
       return true;

@@ -8,7 +8,9 @@ declare module "progressive-share-button" {
     class ProgressiveShareButtonClass extends HTMLElement {
         iconSize: () => string;
         osOverride: () => string | null;
+        private boundShare;
         constructor();
+        disconnectedCallback(): void;
         share(): void;
     }
     const ProgressiveShareButton: () => boolean;

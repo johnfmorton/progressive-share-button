@@ -9,10 +9,12 @@ export interface ProgressiveShareFailEvent extends Event {
 
 class ProgressiveShareButtonClass extends HTMLElement {
     iconSize: () => string
-  osOverride: () => string|null
+    osOverride: () => string | null
+    private boundShare: () => void
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
+        this.boundShare = this.share.bind(this)
         this.iconSize = () => {
             const size = this.getAttribute('icon-size') ?? ''
             if (_isNumeric(size)) {
@@ -23,14 +25,14 @@ class ProgressiveShareButtonClass extends HTMLElement {
                 return 24 + 'px'
             }
         }
-      this.osOverride = () => {
-        const os = this.getAttribute('os') ?? '';
-        if (os) {
-          return os;
-        } else {
-          return null;
+        this.osOverride = () => {
+            const os = this.getAttribute('os') ?? ''
+            if (os) {
+                return os
+            } else {
+                return null
+            }
         }
-      }
         function _isNumeric(value: string) {
             return /^-?\d+$/.test(value)
         }
@@ -57,21 +59,23 @@ class ProgressiveShareButtonClass extends HTMLElement {
                       margin: 0;
                       cursor: pointer;
                     }
-                    :host(:hover) {
-                    }
                   </style>
                   <button part="shareButton">
                   <slot>
                   ${_whichIcon(this.osOverride())}
                   </slot>
                   </button>`
-                this.addEventListener('click', this.share)
+                this.addEventListener('click', this.boundShare)
             }
         } else {
             console.warn(
                 'ProgressiveShareButton disabled due to lack of Web Share API support on this browser.'
             )
         }
+    }
+
+    disconnectedCallback() {
+        this.removeEventListener('click', this.boundShare)
     }
 
     share() {
@@ -98,7 +102,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
             data.title = title
         }
         if (smartShare) {
-            // encure title ends with a period
+            // ensure title ends with a period
             if (title && title.slice(-1) !== '.') {
                 title = title + '.'
             }
@@ -118,17 +122,15 @@ class ProgressiveShareButtonClass extends HTMLElement {
         }
 
         // create the shareEvent of the type ProgressShareEvent defined above
-      let shareEvent: ProgressiveShareSuccessEvent = new CustomEvent(
-          'progressive-share-success',
-          {
-              bubbles: true,
-              cancelable: false,
-              composed: true,
-              detail: data,
-          }
-      )
-
-
+        let shareEvent: ProgressiveShareSuccessEvent = new CustomEvent(
+            'progressive-share-success',
+            {
+                bubbles: true,
+                cancelable: false,
+                composed: true,
+                detail: data,
+            }
+        )
 
         // let shareEvent = new CustomEvent('progressive-share-success', {
         //     bubbles: true,
@@ -137,7 +139,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
         //     detail: data,
         // })
         if (navigator.share) {
-            if (debug == 1) {
+            if (debug) {
                 console.debug('data to be shared', data)
             } else {
                 navigator
@@ -146,7 +148,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
                         this.dispatchEvent(shareEvent)
                     })
                     .catch((e) => {
-                        let shareEventFail: ProgressiveShareSuccessEvent =
+                        let shareEventFail: ProgressiveShareFailEvent =
                             new CustomEvent('progressive-share-fail', {
                                 bubbles: true,
                                 cancelable: false,
@@ -166,7 +168,7 @@ class ProgressiveShareButtonClass extends HTMLElement {
 const ProgressiveShareButton = (): boolean => {
     if (typeof navigator.share === 'function') {
         console.log(
-            'ProgressiveShareButton support initialized. <progressive-share-success /> element now available'
+            'ProgressiveShareButton support initialized. <progressive-share-button> element now available'
         )
     } else {
         console.log(
@@ -180,8 +182,6 @@ const ProgressiveShareButton = (): boolean => {
     )
     return true
 }
-
-;
 
 // export an object with the web component and the function to register it
 export { ProgressiveShareButton, ProgressiveShareButtonClass }
@@ -213,11 +213,11 @@ const _guessOs = () => {
     }
 }
 
-const _whichIcon = (osOverride) => {
-  let os = osOverride;
-  if (osOverride===null || osOverride === 'default' || osOverride === 'auto') {
-      os = _guessOs();
-  }
+const _whichIcon = (osOverride: string | null) => {
+    let os = osOverride
+    if (osOverride === null || osOverride === 'default' || osOverride === 'auto') {
+        os = _guessOs()
+    }
     switch (os) {
         case 'iOS':
         case 'ios':
@@ -238,7 +238,7 @@ function _getBoolean(stringValue: string | null) {
     if (!stringValue) {
         return false
     }
-    switch (stringValue?.toLowerCase()?.trim()) {
+    switch (stringValue.toLowerCase().trim()) {
         case 'true':
         case '1':
             return true

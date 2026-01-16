@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-01-16
+
+### Fixed
+
+- Fixed wrong event type for fail event (was using `ProgressiveShareSuccessEvent` instead of `ProgressiveShareFailEvent`)
+- Fixed typo in console message (`<progressive-share-success />` → `<progressive-share-button>`)
+- Fixed boolean comparison (`debug == 1` → `debug`)
+- Added missing type annotation to `_whichIcon` parameter
+- Fixed memory leak by adding `disconnectedCallback()` to remove click event listener
+- Fixed typo in comment ("encure" → "ensure")
+- Removed stray semicolon
+- Removed empty `:host(:hover)` CSS rule
+- Fixed redundant optional chaining in `_getBoolean`
+- Fixed inconsistent indentation throughout file
+
 ## [1.0.3] - 2023-11-17
 
 ## Added
