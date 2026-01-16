@@ -7,20 +7,14 @@
  */
 (function(global, factory) {
   typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, factory(global["progressive-share-button"] = {}));
-})(this, function(exports2) {
-  "use strict";var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
-
+})(this, (function(exports2) {
+  "use strict";
   class ProgressiveShareButtonClass extends HTMLElement {
+    iconSize;
+    osOverride;
+    boundShare;
     constructor() {
       super();
-      __publicField(this, "iconSize");
-      __publicField(this, "osOverride");
-      __publicField(this, "boundShare");
       this.attachShadow({ mode: "open" });
       this.boundShare = this.share.bind(this);
       this.iconSize = () => {
@@ -212,4 +206,4 @@ var __publicField = (obj, key, value) => {
   exports2.ProgressiveShareButton = ProgressiveShareButton;
   exports2.ProgressiveShareButtonClass = ProgressiveShareButtonClass;
   Object.defineProperty(exports2, Symbol.toStringTag, { value: "Module" });
-});
+}));

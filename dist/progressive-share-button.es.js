@@ -5,18 +5,12 @@
  * author: John F. Morton <john@johnfmorton.com> (https://supergeekery.com)
  * repository: https://github.com/johnfmorton/progressive-share-button
  */
-var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
 class ProgressiveShareButtonClass extends HTMLElement {
+  iconSize;
+  osOverride;
+  boundShare;
   constructor() {
     super();
-    __publicField(this, "iconSize");
-    __publicField(this, "osOverride");
-    __publicField(this, "boundShare");
     this.attachShadow({ mode: "open" });
     this.boundShare = this.share.bind(this);
     this.iconSize = () => {
