@@ -12,6 +12,9 @@ module.exports = defineConfig({
         },
         minify: false,
   },
+  define: {
+      __APP_VERSION__: JSON.stringify(pkg.version),
+  },
   plugins: [
     banner(
       `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * repository: ${pkg.repository.url}\n */`

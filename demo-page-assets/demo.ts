@@ -1,8 +1,16 @@
 // Path: demo-page-assets/demo.ts
 // This is the entry point for the demo page. It's a TypeScript file that
 //  loads in the module that we're buidling with this repo
+declare const __APP_VERSION__: string
+
 import { ProgressiveShareButton } from '../lib/progressive-share-button'
 ProgressiveShareButton()
+
+// Populate version info in footer
+const versionInfo = document.getElementById('version-info')
+if (versionInfo) {
+    versionInfo.textContent = `v${__APP_VERSION__}`
+}
 
 import { ProgressiveShareSuccessEvent, ProgressiveShareFailEvent } from '../lib/progressive-share-button';
 // register the progressive-share-button web component
