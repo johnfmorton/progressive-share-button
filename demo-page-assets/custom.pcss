@@ -1,38 +1,148 @@
- progressive-share-button.example-1::part(shareButton) {
-      background-color: blueviolet;
-      border-radius: 5px;
-      padding: 0.45rem 0.75rem 0.75rem;
-    }
+/* Theme transition styles */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease !important;
+    transition-delay: 0s !important;
+}
 
-    progressive-share-button.example-1:hover::part(shareButton) {
-      background-color: blue;
-    }
+/* Demo section cards */
+.demo-section {
+    @apply bg-white rounded-xl p-6 shadow-sm border border-zinc-200;
+}
 
-    progressive-share-button.example-1::part(shareIcon) {
-      color: white;
-    }
+.dark .demo-section {
+    @apply bg-zinc-900 border-zinc-800;
+}
 
-    progressive-share-button.example-1:hover::part(shareIcon) {
-      color: orange;
-    }
+/* Code blocks */
+.code-block {
+    @apply bg-zinc-100 text-zinc-900 rounded-lg p-4 overflow-x-auto text-sm;
+}
 
-    progressive-share-button.text-share-example-1::part(shareButton) {
-      font-size: 1rem;
-      text-decoration: underline;
-      color: blue;
-    }
+.dark .code-block {
+    @apply bg-zinc-800 text-zinc-50;
+}
 
-    progressive-share-button.text-share-example-2::part(shareButton) {
-      background: red;
-      color: white;
-      font-size: 0.75rem;
-      border-radius: 1rem;
-      border: 1px solid black;
-      padding: 0.25rem 0.75rem;
-    }
+/* Support status indicators */
+.supported {
+    @apply bg-emerald-100 text-emerald-800 border border-emerald-200 p-4 rounded-lg flex items-center gap-3;
+}
 
+.dark .supported {
+    @apply bg-emerald-900/30 text-emerald-300 border-emerald-800;
+}
 
-    .bg-yellow {
-     @apply bg-yellow-200 px-1;
-    }
+.not-supported {
+    @apply bg-red-100 text-red-800 border border-red-200 p-4 rounded-lg flex items-center gap-3;
+}
 
+.dark .not-supported {
+    @apply bg-red-900/30 text-red-300 border-red-800;
+}
+
+/* Status icons */
+.status-icon {
+    @apply w-5 h-5 flex-shrink-0;
+}
+
+/* Highlight background for notes */
+.bg-yellow {
+    @apply bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded;
+}
+
+.dark .bg-yellow {
+    @apply bg-amber-900/40 text-amber-200;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    @apply p-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 transition-colors;
+}
+
+.dark .theme-toggle {
+    @apply bg-zinc-800 hover:bg-zinc-700 text-zinc-400;
+}
+
+.theme-toggle svg {
+    @apply w-5 h-5;
+}
+
+/* Header styling */
+.demo-header {
+    @apply sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200;
+}
+
+.dark .demo-header {
+    @apply bg-zinc-950/80 border-zinc-800;
+}
+
+/* Component example styles with dark mode */
+progressive-share-button.example-1::part(shareButton) {
+    background-color: blueviolet;
+    border-radius: 5px;
+    padding: 0.45rem 0.75rem 0.75rem;
+}
+
+progressive-share-button.example-1:hover::part(shareButton) {
+    background-color: blue;
+}
+
+progressive-share-button.example-1::part(shareIcon) {
+    color: white;
+}
+
+progressive-share-button.example-1:hover::part(shareIcon) {
+    color: orange;
+}
+
+progressive-share-button.text-share-example-1::part(shareButton) {
+    font-size: 1rem;
+    text-decoration: underline;
+    color: #4f46e5; /* indigo-600 */
+}
+
+.dark progressive-share-button.text-share-example-1::part(shareButton) {
+    color: #818cf8; /* indigo-400 */
+}
+
+progressive-share-button.text-share-example-2::part(shareButton) {
+    background: #dc2626; /* red-600 */
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.75rem;
+}
+
+progressive-share-button.text-share-example-2:hover::part(shareButton) {
+    background: #b91c1c; /* red-700 */
+}
+
+/* Icon bounding box demo */
+.icon-demo-box {
+    @apply inline-block;
+    background-color: #a3e635; /* lime-400 */
+}
+
+.dark .icon-demo-box {
+    background-color: #65a30d; /* lime-600 */
+}
+
+/* Footer styling */
+.demo-footer {
+    @apply border-t border-zinc-200 text-zinc-600;
+}
+
+.dark .demo-footer {
+    @apply border-zinc-800 text-zinc-400;
+}
+
+.demo-footer a {
+    @apply text-indigo-600 hover:text-indigo-700 hover:underline;
+}
+
+.dark .demo-footer a {
+    @apply text-indigo-400 hover:text-indigo-300;
+}
