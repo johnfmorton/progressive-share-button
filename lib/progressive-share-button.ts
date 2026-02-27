@@ -176,10 +176,12 @@ const ProgressiveShareButton = (): boolean => {
         )
     }
     // register the progressive-share-button web component
-    customElements.define(
-        'progressive-share-button',
-        ProgressiveShareButtonClass
-    )
+    if (!customElements.get('progressive-share-button')) {
+        customElements.define(
+            'progressive-share-button',
+            ProgressiveShareButtonClass
+        )
+    }
     return true
 }
 
