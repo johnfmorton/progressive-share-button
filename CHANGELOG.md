@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Built with Vite 8; the bundled `dist/` files are smaller only because of formatting, and the component itself is unchanged
+- Renamed `vite.config.js` and `vite.demo.config.js` to `.mjs` so Vite loads them as ES modules, which clears Vite 8's config-loader deprecation warning
+- Updated dev dependencies (postcss, browserslist, vite, source-map-js)
+
+### Security
+
+- Overrode `@tailwindcss/typography`'s pinned `postcss-selector-parser` to `^6.1.5` to resolve GHSA-rj75-hqrm-r3gf (dev-only, affects the demo build)
+
 ## [1.0.6] - 2026-06-06
 
 ### Fixed

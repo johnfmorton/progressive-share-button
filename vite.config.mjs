@@ -1,12 +1,14 @@
-const path = require('path')
-const { defineConfig } = require('vite')
+import { fileURLToPath } from 'url'
+import { readFileSync } from 'fs'
+import { defineConfig } from 'vite'
 import banner from 'vite-plugin-banner'
-import pkg from './package.json'
 
-module.exports = defineConfig({
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'))
+
+export default defineConfig({
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'lib/progressive-share-button.ts'),
+            entry: fileURLToPath(new URL('lib/progressive-share-button.ts', import.meta.url)),
             name: 'progressive-share-button',
             fileName: (format) => `progressive-share-button.${format}.js`,
         },

@@ -23,8 +23,8 @@
     "scripts": {
         "clean": "rm -rf dist es demo",
         "dev": "vite --host 0.0.0.0 --port 8888",
-        "vite-build": "vite build --config vite.demo.config.js",
-        "build": "vite build --config vite.demo.config.js && vite build && tsc lib/progressive-share-button.ts --declaration --emitDeclarationOnly --outFile dist/progressive-share-button.d.ts",
+        "vite-build": "vite build --config vite.demo.config.mjs",
+        "build": "vite build --config vite.demo.config.mjs && vite build && tsc lib/progressive-share-button.ts --declaration --emitDeclarationOnly --outFile dist/progressive-share-button.d.ts",
         "preview": "vite preview",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -45,5 +45,10 @@
         "typescript": "^4.9.5",
         "vite": "^8.0.16",
         "vite-plugin-banner": "^0.7.0"
+    },
+    "overrides": {
+        "@tailwindcss/typography": {
+            "postcss-selector-parser": "^6.1.5"
+        }
     }
 }

@@ -34,8 +34,8 @@ The library exports:
 
 ## Build Configuration
 
-- `vite.config.js` - Library build (outputs to `/dist/`)
-- `vite.demo.config.js` - Demo page build (outputs to `/demo/`, uses base path for GitHub Pages)
+- `vite.config.mjs` - Library build (outputs to `/dist/`)
+- `vite.demo.config.mjs` - Demo page build (outputs to `/demo/`, uses base path for GitHub Pages)
 
 ## Code Style
 
@@ -43,4 +43,4 @@ Per `prettier.config.js`: 4-space indentation, single quotes, no semicolons, tra
 
 ## Publishing
 
-The library is published to both NPM and JSR. GitHub Actions automatically builds and publishes on push to main.
+The library is published to both NPM and JSR manually. The only GitHub Actions workflow (`.github/workflows/ghpages.yaml`) builds the demo page and deploys it to GitHub Pages on push to main.
