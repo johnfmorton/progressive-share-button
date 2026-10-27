@@ -1,5 +1,5 @@
 {
   "name": "@johnfmorton/progressive-share-button",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "exports": "./lib/progressive-share-button.ts"
 }
